@@ -1,0 +1,37 @@
+{
+  "title": "PROTEUS Responsible AI Guideline",
+  "upload_type": "publication",
+  "publication_type": "report",
+  "description": "<p>Responsible AI guideline of the Horizon Europe project PROTEUS – The Copernicus Agent for Next-Generation Environmental Intelligence. It sets out principles, a lifecycle checklist and roles and responsibilities for the trustworthy development and use of agentic AI on Copernicus Earth Observation data.</p><p>Website: https://aldinorizaldy.github.io/proteus_rai_guideline/</p>",
+  "creators": [
+    {
+      "name": "Lastname1, Firstname1",
+      "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf (HZDR)"
+    },
+    {
+      "name": "Lastname2, Firstname2",
+      "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf (HZDR)"
+    }
+  ],
+  "keywords": [
+    "Responsible AI",
+    "Earth Observation",
+    "Copernicus",
+    "Agentic AI",
+    "EU AI Act"
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "grants": [
+    { "id": "10.13039/501100000780::101296397" }
+  ],
+  "notes": "Funded by the European Union under Grant Agreement No. 101296397 (Horizon Europe, managed by HaDEA). Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or HaDEA. Neither the European Union nor the granting authority can be held responsible for them.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/aldinorizaldy/proteus_rai_guideline",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

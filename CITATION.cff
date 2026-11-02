@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this guideline, please cite it as below."
+type: dataset   # CFF has no "report" type; Zenodo's type comes from .zenodo.json
+title: "PROTEUS Responsible AI Guideline"
+abstract: >-
+  Responsible AI guideline of the Horizon Europe project PROTEUS – The
+  Copernicus Agent for Next-Generation Environmental Intelligence. It sets out
+  principles, a lifecycle checklist and roles and responsibilities for the
+  trustworthy development and use of agentic AI on Copernicus Earth
+  Observation data.
+version: "0.1"
+date-released: "2026-11-02"
+doi: "10.5281/zenodo.XXXXXXX"
+url: "https://aldinorizaldy.github.io/proteus_rai_guideline/"
+repository-code: "https://github.com/aldinorizaldy/proteus_rai_guideline"
+license: CC-BY-4.0
+authors:
+  - family-names: "Lastname1"
+    given-names: "Firstname1"
+    affiliation: "Helmholtz-Zentrum Dresden-Rossendorf (HZDR)"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: "Lastname2"
+    given-names: "Firstname2"
+    affiliation: "Helmholtz-Zentrum Dresden-Rossendorf (HZDR)"
+keywords:
+  - Responsible AI
+  - Earth Observation
+  - Copernicus
+  - Agentic AI
+  - EU AI Act
+references:
+  - type: grant
+    authors:
+      - name: "PROTEUS consortium"
+    title: "PROTEUS – The Copernicus Agent for Next-Generation Environmental Intelligence"
+    number: "101296397"
+    institution:
+      name: "European Health and Digital Executive Agency (HaDEA)"
+    notes: "Horizon Europe Grant Agreement No. 101296397"

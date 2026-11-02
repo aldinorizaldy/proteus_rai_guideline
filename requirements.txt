@@ -1,0 +1,19 @@
+# Site build (pinned; tested on Python 3.9 and 3.12)
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+mkdocs-material-extensions==1.3.1
+mkdocs-print-site-plugin==2.9
+pymdown-extensions==10.21.3
+Markdown==3.9
+Pygments==2.21.0
+Jinja2==3.1.6
+
+# PDF export: headless Chromium prints the combined /print_page/ to PDF
+playwright==1.60.0
+
+# Asset preparation (scripts/prepare_assets.py)
+pillow==11.3.0
+
+# Google Doc conversion (scripts/convert_source.py) – bundles pandoc 3.9,
+# so no separate pandoc install is needed
+pypandoc_binary==1.17

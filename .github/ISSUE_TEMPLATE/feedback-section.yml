@@ -1,0 +1,63 @@
+name: Feedback on a section
+description: Something in an existing section is unclear, wrong, missing or could be improved.
+title: "[Feedback] <section>: <short summary>"
+labels: ["feedback", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the PROTEUS Responsible AI Guideline.
+        Please do not include personal data or confidential project information.
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      description: Which section is your feedback about?
+      options:
+        # BEGIN sections (managed by scripts/convert_source.py)
+        - "Introduction"
+        - "Principles"
+        - "Lifecycle checklist"
+        - "Roles & responsibilities"
+        - "Glossary"
+        - "References"
+        - "Other / whole guideline"
+        # END sections
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link to the heading (optional)
+      description: Click the "#" next to a heading to copy its link, then paste it here.
+      placeholder: https://…/guideline/02-principles/#transparency
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of feedback
+      options:
+        - Unclear or ambiguous
+        - Factually incorrect or outdated
+        - Missing information
+        - Not practical / hard to apply
+        - Typo or formatting
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Your feedback
+      description: What is the problem? Quote the relevant text if helpful.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested change (optional)
+      description: Proposed wording or approach.
+  - type: input
+    id: affiliation
+    attributes:
+      label: Your organisation / role (optional)
+      placeholder: e.g. PROTEUS partner, use-case owner, external reviewer

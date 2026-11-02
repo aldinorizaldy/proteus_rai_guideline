@@ -1,0 +1,158 @@
+# PROTEUS Responsible AI Guideline – MkDocs configuration
+# Placeholder to replace: the project URL (extra.project_url).
+
+site_name: PROTEUS Responsible AI Guideline
+site_description: >-
+  Responsible AI guideline of the Horizon Europe project PROTEUS – The Copernicus
+  Agent for Next-Generation Environmental Intelligence (GA No. 101296397).
+site_author: Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+site_url: https://aldinorizaldy.github.io/proteus_rai_guideline/
+repo_url: https://github.com/aldinorizaldy/proteus_rai_guideline
+repo_name: proteus_rai_guideline
+edit_uri: edit/main/docs/
+copyright: >-
+  Text © PROTEUS consortium, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  logo: assets/proteus-wordmark-white.png
+  favicon: assets/favicon-32.png
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  icon:
+    edit: material/pencil-outline
+    repo: fontawesome/brands/github
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer          # previous / next links
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.action.edit        # "Edit this page on GitHub"
+    - content.code.copy
+    - content.tooltips
+
+extra:
+  # Bump these with `python scripts/bump_version.py X.Y YYYY-MM-DD`.
+  version: "0.1"
+  release_date: "2026-11-02"
+  doi: "10.5281/zenodo.XXXXXXX"
+  pdf: pdf/proteus-rai-guideline.pdf
+  project_url: https://www.proteus-project.eu   # placeholder
+  grant: "101296397"
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/aldinorizaldy/proteus_rai_guideline
+      name: Source on GitHub
+    - icon: material/web
+      link: https://www.proteus-project.eu
+      name: PROTEUS project website
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: "#"
+      permalink_title: Copy link to this section
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.caret        # ^superscript^ (pandoc output)
+  - pymdownx.tilde        # ~subscript~ and ~~strikethrough~~
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets:
+      base_path: [".", "includes"]
+      check_paths: true
+      auto_append: [links.md]
+
+plugins:
+  - search
+  # GDPR: the Google Fonts above are fetched from Google's servers on every
+  # visit. To self-host them (and other external assets) instead, enable:
+  # - privacy
+  - print-site:            # must stay the last plugin
+      add_to_navigation: false
+      add_print_site_banner: false
+      add_cover_page: true
+      cover_page_template: includes/print_cover.tpl
+      add_table_of_contents: true
+      toc_title: Contents
+      toc_depth: 2
+      add_full_urls: false
+      enumerate_headings: false
+      print_page_title: PROTEUS Responsible AI Guideline
+      exclude:
+        - index.md
+        - changelog.md
+        - contribute.md
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    anchors: warn
+    absolute_links: info
+    unrecognized_links: warn
+
+nav:
+  - Home: index.md
+  - Guideline:
+      - guideline/index.md
+      # BEGIN guideline-nav (managed by scripts/convert_source.py)
+      - guideline/01-introduction.md
+      - guideline/02-principles.md
+      - guideline/03-lifecycle-checklist.md
+      - guideline/04-roles-and-responsibilities.md
+      - guideline/05-glossary.md
+      - guideline/06-references.md
+      # END guideline-nav
+  - How to cite: cite.md
+  - Changelog: changelog.md
+  - Contribute: contribute.md

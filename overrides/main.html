@@ -1,0 +1,10 @@
+{#- Site-wide additions to Material's base template. -#}
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/apple-touch-icon-180.png' | url }}">
+  <meta name="theme-color" content="#6F309E">
+  <meta name="citation_title" content="{{ config.site_name }}">
+  <meta name="citation_publication_date" content="{{ config.extra.release_date }}">
+  <meta name="citation_doi" content="{{ config.extra.doi }}">
+{% endblock %}

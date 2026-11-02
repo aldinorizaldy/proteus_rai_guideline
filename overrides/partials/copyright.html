@@ -1,0 +1,19 @@
+{#- PROTEUS footer: EU funding notice, licence and project link (every page). -#}
+<div class="md-copyright">
+  <div class="px-funding">
+    <img src="{{ 'assets/eu-flag.png' | url }}" alt="Flag of the European Union" width="72" height="48">
+    <p>
+      Funded by the European Union under GA No. {{ config.extra.grant }}.
+      Views and opinions expressed are however those of the author(s) only and
+      do not necessarily reflect those of the European Union or HaDEA. Neither
+      the European Union nor the granting authority can be held responsible
+      for them.
+    </p>
+  </div>
+  <div class="px-footer-links">
+    {% if config.copyright %}{{ config.copyright }}{% endif %}
+    Code under <a href="{{ config.repo_url }}/blob/main/LICENSE-code">MIT</a>.
+    ·
+    <a href="{{ config.extra.project_url }}">PROTEUS project website</a>
+  </div>
+</div>

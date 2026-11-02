@@ -1,0 +1,40 @@
+{#- Home page: hero modelled on the PROTEUS title slide. Used by docs/index.md
+    via `template: home.html`. Version, date, DOI and PDF path come from
+    `extra:` in mkdocs.yml. -#}
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+  <section class="px-hero" aria-labelledby="px-hero-title">
+    <div class="md-grid px-hero__inner">
+      <div class="px-hero__text">
+        <p class="px-hero__tagline">The Copernicus Agent for Next-Generation Environmental Intelligence</p>
+        <h1 id="px-hero-title"><span>PROTEUS</span>Responsible AI Guideline</h1>
+        <p class="px-hero__lead">
+          Practical principles and lifecycle checks for building trustworthy,
+          agentic AI on Copernicus Earth Observation data.
+        </p>
+        <span class="px-badge">Version {{ config.extra.version }} – {{ config.extra.release_date }}</span>
+        <div class="px-hero__actions">
+          <a class="px-btn px-btn--light" href="{{ 'guideline/' | url }}">
+            {% include ".icons/material/book-open-page-variant-outline.svg" %} Read the guideline
+          </a>
+          <a class="px-btn px-btn--orange" href="{{ config.extra.pdf | url }}" download>
+            {% include ".icons/material/file-pdf-box.svg" %} Download PDF
+          </a>
+          <a class="px-btn px-btn--ghost" href="{{ 'cite/' | url }}">
+            {% include ".icons/material/format-quote-open.svg" %} Cite
+          </a>
+        </div>
+      </div>
+      <div class="px-hero__globe" aria-hidden="true">
+        <img src="{{ 'assets/hero-globe.webp' | url }}" alt="" width="1200" height="796" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{#- No auto-generated "Home" H1 or edit button on the landing page. -#}
+{% block content %}
+  <div class="px-home">{{ page.content }}</div>
+{% endblock %}

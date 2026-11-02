@@ -1,0 +1,307 @@
+/* ==========================================================================
+   PROTEUS Responsible AI Guideline – visual identity
+   Colours taken from the PROTEUS PowerPoint template.
+   ========================================================================== */
+
+:root {
+  /* Brand tokens ----------------------------------------------------------- */
+  --px-purple:   #6F309E;   /* royal purple – primary, title slide, headers */
+  --px-navy:     #12007D;   /* deep navy – wordmark, dark text accents      */
+  --px-navy-900: #0B0050;   /* navy darkened – dark-mode background         */
+  --px-lavender: #B3A6DF;   /* most-used accent – highlights, borders       */
+  --px-orange:   #FC952E;   /* warm accent – gradient glow, calls to action */
+  --px-mint:     #81C5A5;   /* secondary accent – success, "do" items       */
+  --px-amber:    #FFC000;   /* warnings / caution                           */
+  --px-sky:      #5B9BD5;   /* info callouts, links on dark backgrounds     */
+  --px-grass:    #70AD47;   /* charts only                                  */
+  --px-white:    #FFFFFF;
+  --px-black:    #000000;
+
+  /* Darker "ink" shades of the accents, used for icons and small text on
+     light backgrounds so they keep >= 3:1 (graphics) / 4.5:1 (text). */
+  --px-ink-lavender: #6F309E;
+  --px-ink-mint:     #2B6E4F;
+  --px-ink-amber:    #7A5A00;
+  --px-ink-orange:   #A04E00;
+  --px-ink-sky:      #1F5F99;
+
+  --px-radius: 0.6rem;
+}
+
+/* Material colour mapping – both schemes ---------------------------------- */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        var(--px-purple);
+  --md-primary-fg-color--light: var(--px-lavender);
+  --md-primary-fg-color--dark:  var(--px-navy);
+  --md-primary-bg-color:        var(--px-white);
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.75);
+
+  --md-accent-fg-color:              var(--px-orange);
+  --md-accent-fg-color--transparent: rgba(252, 149, 46, 0.12);
+  --md-accent-bg-color:              var(--px-navy);
+  --md-accent-bg-color--light:       rgba(18, 0, 125, 0.75);
+
+  --md-footer-bg-color:       var(--px-navy);
+  --md-footer-bg-color--dark: var(--px-navy-900);
+  --md-footer-fg-color:       var(--px-white);
+  --md-footer-fg-color--light:   rgba(255, 255, 255, 0.82);
+  --md-footer-fg-color--lighter: rgba(255, 255, 255, 0.70);
+}
+
+/* Light mode -------------------------------------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-default-fg-color: rgba(0, 0, 0, 0.87);
+  --md-typeset-color:    var(--px-black);
+  --md-typeset-a-color:  var(--px-purple);           /* 8.1:1 on white  */
+  --px-link-hover:       var(--px-navy);             /* 16:1 on white   */
+  --px-heading:          var(--px-navy);
+  --md-typeset-mark-color: rgba(179, 166, 223, 0.55);
+  --md-code-bg-color:    #FAF9FE;
+  --px-table-head:       rgba(179, 166, 223, 0.30);
+  --px-card-bg:          #FFFFFF;
+  --px-card-border:      var(--px-lavender);
+}
+
+/* Dark mode: deep navy darkened towards #0B0050, lavender links ----------- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 248;
+  --md-default-bg-color:          var(--px-navy-900);
+  --md-default-bg-color--light:   rgba(11, 0, 80, 0.54);
+  --md-default-bg-color--lighter: rgba(11, 0, 80, 0.26);
+  --md-default-bg-color--lightest:rgba(11, 0, 80, 0.07);
+  --md-default-fg-color:          rgba(240, 238, 252, 0.92);
+  --md-default-fg-color--light:   rgba(240, 238, 252, 0.72);
+  --md-default-fg-color--lighter: rgba(240, 238, 252, 0.45);
+  --md-default-fg-color--lightest:rgba(240, 238, 252, 0.14);
+  --md-typeset-color:    #F0EEFC;                    /* 17:1 on #0B0050 */
+  --md-typeset-a-color:  var(--px-lavender);         /* 8.3:1           */
+  --px-link-hover:       #FFFFFF;
+  --px-heading:          #FFFFFF;
+  --md-typeset-mark-color: rgba(252, 149, 46, 0.35);
+  --md-code-bg-color:    #170A66;
+  --md-code-fg-color:    #E6E2FA;
+  --md-shadow-z1: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.25);
+  --px-table-head:       rgba(179, 166, 223, 0.16);
+  --px-card-bg:          #12007D;
+  --px-card-border:      rgba(179, 166, 223, 0.45);
+
+  --px-ink-lavender: var(--px-lavender);
+  --px-ink-mint:     var(--px-mint);
+  --px-ink-amber:    var(--px-amber);
+  --px-ink-orange:   var(--px-orange);
+  --px-ink-sky:      #8DBDEA;
+}
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs { background-color: var(--px-purple); }
+
+/* Typography -------------------------------------------------------------- */
+.md-typeset { font-size: 0.85rem; line-height: 1.7; }
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 { color: var(--px-heading); font-weight: 600; letter-spacing: -0.01em; }
+.md-typeset h1 { font-weight: 700; }
+.md-typeset h2 { border-bottom: 2px solid var(--px-lavender); padding-bottom: 0.2em; }
+
+/* Links in running text are underlined (WCAG 1.4.1: not colour alone).
+   Accent orange is too light for text, so hover uses navy/white. */
+.md-typeset a:not(.md-button):not(.headerlink):not(.footnote-backref) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+.md-typeset a:hover,
+.md-typeset a:focus { color: var(--px-link-hover); text-decoration: underline; }
+.md-nav__link:hover,
+.md-nav__link:focus,
+.md-nav__link--active { color: var(--md-typeset-a-color); }
+.md-nav__link:hover { text-decoration: underline; }
+.md-nav__link--active { font-weight: 600; }
+
+/* Header: purple bar, white logo ----------------------------------------- */
+.md-header__button.md-logo img { height: 1.5rem; width: auto; }
+.md-header__pdf {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  margin: 0 0.4rem; padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.7); border-radius: 999px;
+  color: var(--px-white); font-size: 0.7rem; font-weight: 600;
+  line-height: 1;
+}
+.md-header__pdf:hover { background: var(--px-orange); border-color: var(--px-orange); color: var(--px-navy); }
+.md-header__pdf svg { width: 1rem; height: 1rem; fill: currentColor; }
+@media screen and (max-width: 44.984375em) { .md-header__pdf span { display: none; } .md-header__pdf { border: 0; padding: 0.25rem; } }
+
+/* Headerlink ("#") – click copies the section URL (see extra.js) ---------- */
+.md-typeset .headerlink { color: var(--md-default-fg-color--lighter); }
+.md-typeset .headerlink:hover,
+.md-typeset .headerlink:focus { color: var(--md-typeset-a-color); }
+.px-toast {
+  position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
+  z-index: 10; padding: 0.5rem 1rem; border-radius: 999px;
+  background: var(--px-navy); color: var(--px-white);
+  font-size: 0.75rem; box-shadow: var(--md-shadow-z2);
+  opacity: 0; transition: opacity 0.2s; pointer-events: none;
+}
+.px-toast.is-visible { opacity: 1; }
+
+/* Admonitions: note=lavender, tip=mint, warning=amber, danger=orange,
+   info=sky blue. Border + tinted title in the brand colour; icon in the
+   matching "ink" shade so it stays legible. ------------------------------ */
+.md-typeset .admonition,
+.md-typeset details { border-width: 0 0 0 0.25rem; border-radius: 0 var(--px-radius) var(--px-radius) 0; box-shadow: none; font-size: 0.8rem; }
+
+.md-typeset :is(.admonition, details):is(.note, .abstract, .question, .example, .quote) { border-color: var(--px-lavender); background: rgba(179, 166, 223, 0.08); }
+.md-typeset :is(.note, .abstract, .question, .example, .quote) > :is(.admonition-title, summary) { background-color: rgba(179, 166, 223, 0.28); }
+.md-typeset :is(.note, .abstract, .question, .example, .quote) > :is(.admonition-title, summary)::before { background-color: var(--px-ink-lavender); }
+
+.md-typeset :is(.admonition, details):is(.tip, .success) { border-color: var(--px-mint); background: rgba(129, 197, 165, 0.08); }
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary) { background-color: rgba(129, 197, 165, 0.28); }
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary)::before { background-color: var(--px-ink-mint); }
+
+.md-typeset :is(.admonition, details):is(.warning, .bug) { border-color: var(--px-amber); background: rgba(255, 192, 0, 0.07); }
+.md-typeset :is(.warning, .bug) > :is(.admonition-title, summary) { background-color: rgba(255, 192, 0, 0.24); }
+.md-typeset :is(.warning, .bug) > :is(.admonition-title, summary)::before { background-color: var(--px-ink-amber); }
+
+.md-typeset :is(.admonition, details):is(.danger, .failure) { border-color: var(--px-orange); background: rgba(252, 149, 46, 0.07); }
+.md-typeset :is(.danger, .failure) > :is(.admonition-title, summary) { background-color: rgba(252, 149, 46, 0.26); }
+.md-typeset :is(.danger, .failure) > :is(.admonition-title, summary)::before { background-color: var(--px-ink-orange); }
+
+.md-typeset :is(.admonition, details).info { border-color: var(--px-sky); background: rgba(91, 155, 213, 0.07); }
+.md-typeset .info > :is(.admonition-title, summary) { background-color: rgba(91, 155, 213, 0.24); }
+.md-typeset .info > :is(.admonition-title, summary)::before { background-color: var(--px-ink-sky); }
+
+.md-typeset :is(.admonition, details) > :is(.admonition-title, summary) { font-weight: 600; }
+
+/* Tables, code, task lists ----------------------------------------------- */
+.md-typeset table:not([class]) { border-radius: var(--px-radius); border: 1px solid var(--px-card-border); font-size: 0.75rem; }
+.md-typeset table:not([class]) th { background: var(--px-table-head); color: var(--px-heading); }
+.md-typeset .task-list-control [type="checkbox"]:checked + .task-list-indicator::before { background-color: var(--px-ink-mint); }
+.md-typeset figure img { border-radius: var(--px-radius); }
+.md-typeset figcaption { color: var(--md-default-fg-color--light); font-size: 0.75rem; }
+
+/* Buttons ----------------------------------------------------------------- */
+.md-typeset .md-button { border-radius: 999px; font-weight: 600; border-width: 2px; }
+.md-typeset .md-button--primary { background: var(--px-purple); border-color: var(--px-purple); color: var(--px-white); }
+[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) { color: var(--px-lavender); border-color: var(--px-lavender); }
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus { background: var(--px-orange); border-color: var(--px-orange); color: var(--px-navy); text-decoration: none; }
+
+/* Cards on the home / cite pages ----------------------------------------- */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border: 1px solid var(--px-card-border); border-radius: var(--px-radius);
+  background: var(--px-card-bg);
+}
+.md-typeset .grid.cards > ul > li:hover { border-color: var(--px-purple); box-shadow: var(--md-shadow-z2); }
+
+/* Home page hero – recreates the PROTEUS title slide ---------------------- */
+.px-hero {
+  position: relative; overflow: hidden; color: var(--px-white);
+  background:
+    radial-gradient(38rem 26rem at 100% 0%, rgba(252, 149, 46, 0.55), rgba(252, 149, 46, 0) 70%),
+    linear-gradient(135deg, var(--px-purple) 0%, var(--px-purple) 42%, var(--px-lavender) 100%);
+}
+[data-md-color-scheme="slate"] .px-hero {
+  background:
+    radial-gradient(38rem 26rem at 100% 0%, rgba(252, 149, 46, 0.40), rgba(252, 149, 46, 0) 70%),
+    linear-gradient(135deg, var(--px-navy-900) 0%, var(--px-navy) 35%, var(--px-purple) 100%);
+}
+.px-hero__inner {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center; min-height: 28rem;
+}
+.px-hero__text { position: relative; z-index: 1; padding: 3.5rem 0.8rem 3.5rem 0.8rem; }
+.px-hero__tagline {
+  margin: 0 0 0.8rem; font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.95;
+}
+.px-hero h1 {
+  margin: 0 0 1rem; color: var(--px-white);
+  font-size: 2.6rem; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em;
+}
+.px-hero h1 span { display: block; font-weight: 300; font-size: 0.55em; letter-spacing: 0; margin-bottom: 0.3rem; }
+.px-hero__lead { max-width: 30rem; margin: 0 0 1.4rem; font-size: 0.9rem; line-height: 1.6; }
+.px-badge {
+  display: inline-block; margin-bottom: 1.4rem; padding: 0.2rem 0.75rem;
+  border-radius: 999px; background: var(--px-lavender); color: var(--px-navy);
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.02em;
+}
+.px-hero__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.px-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.6rem 1.2rem; border-radius: 999px; border: 2px solid var(--px-white);
+  font-size: 0.8rem; font-weight: 600; line-height: 1; transition: all 0.15s;
+}
+.px-btn svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
+.px-btn--light  { background: var(--px-white);  color: var(--px-purple); }
+.px-btn--orange { background: var(--px-orange); border-color: var(--px-orange); color: var(--px-navy); }
+.px-btn--ghost  { background: transparent; color: var(--px-white); }
+.px-btn:hover, .px-btn:focus { background: var(--px-navy); border-color: var(--px-navy); color: var(--px-white); }
+.px-btn:focus-visible { outline: 3px solid var(--px-amber); outline-offset: 2px; }
+/* Globe hugs the hero's right/bottom edge (the source image is cropped on
+   its right side), independent of the centred content grid. */
+.px-hero__globe { position: absolute; right: 0; bottom: 0; top: 0; width: 48%; pointer-events: none; }
+.px-hero__globe img {
+  position: absolute; right: 0; bottom: 0; height: 108%; width: auto; max-width: none;
+}
+
+@media screen and (max-width: 59.984375em) {
+  .px-hero__inner { grid-template-columns: 1fr; min-height: 0; }
+  /* Tall hero: keep purple behind the text, lavender only behind the globe */
+  [data-md-color-scheme="default"] .px-hero {
+    background:
+      radial-gradient(24rem 18rem at 100% 0%, rgba(252, 149, 46, 0.45), rgba(252, 149, 46, 0) 70%),
+      linear-gradient(160deg, var(--px-purple) 0%, var(--px-purple) 62%, var(--px-lavender) 100%);
+  }
+  .px-hero__text { padding: 2.2rem 0.8rem 1rem; }
+  .px-hero h1 { font-size: 2rem; }
+  .px-hero__globe { position: relative; top: auto; width: 100%; height: 14rem; margin-top: 1.2rem; }
+  .px-hero__globe img { height: 100%; }
+}
+@media screen and (max-width: 29.984375em) {
+  .px-hero h1 { font-size: 1.7rem; }
+  .px-btn { flex: 1 1 100%; justify-content: center; }
+}
+
+/* Home page body ---------------------------------------------------------- */
+.px-home .md-content__inner { padding-top: 1rem; }
+.px-home .md-content__inner > h1:first-child { display: none; }
+.px-summary { font-size: 1rem; line-height: 1.7; max-width: 46rem; }
+
+/* Footer: EU funding notice ---------------------------------------------- */
+.md-footer-meta__inner { flex-wrap: wrap; }
+.md-copyright { width: 100%; max-width: 52rem; }
+.px-funding { display: flex; gap: 0.9rem; align-items: flex-start; margin: 0.4rem 0 0.6rem; }
+.px-funding img { flex: 0 0 auto; width: 3.6rem; height: auto; border: 1px solid rgba(255, 255, 255, 0.35); }
+.px-funding p { margin: 0; line-height: 1.5; color: var(--md-footer-fg-color--light); }
+.px-footer-links { margin: 0.2rem 0 0.4rem; color: var(--md-footer-fg-color--light); }
+.md-footer-meta a { color: var(--px-white); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.4); }
+.md-footer-meta a:hover { color: var(--px-orange); }
+@media screen and (max-width: 29.984375em) { .px-funding { flex-direction: column; } }
+
+/* PDF cover page (mkdocs-print-site-plugin, includes/print_cover.tpl) ------ */
+.px-cover {
+  display: flex; flex-direction: column; min-height: 240mm;
+  padding: 18mm 14mm; color: var(--px-white); border-radius: var(--px-radius);
+  background:
+    radial-gradient(120mm 90mm at 100% 0%, rgba(252, 149, 46, 0.55), rgba(252, 149, 46, 0) 70%),
+    linear-gradient(135deg, var(--px-purple) 0%, var(--px-purple) 45%, var(--px-lavender) 100%);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.px-cover__logo { width: 70mm; padding: 6mm 8mm; background: var(--px-white); border-radius: var(--px-radius); }
+.md-typeset .px-cover__tagline { margin: 30mm 0 4mm; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.md-typeset h1.px-cover__title { margin: 0 0 8mm; color: var(--px-white); font-size: 2.6rem; line-height: 1.1; }
+.md-typeset .px-cover__meta { font-size: 0.85rem; line-height: 1.7; }
+.px-cover__funding { display: flex; gap: 5mm; align-items: flex-start; margin-top: auto; font-size: 0.65rem; line-height: 1.5; }
+.md-typeset .px-cover__funding p { margin: 0; }
+.px-cover__funding img { width: 22mm; border: 1px solid rgba(255, 255, 255, 0.6); }
+
+/* Print (browser print & PDF) --------------------------------------------- */
+@media print {
+  .px-hero, .md-header__pdf, .px-toast { display: none !important; }
+  #print-site-cover-page { break-after: page; }
+  .md-typeset h2 { break-after: avoid; }
+  .md-typeset table, .md-typeset figure, .md-typeset .admonition { break-inside: avoid; }
+}

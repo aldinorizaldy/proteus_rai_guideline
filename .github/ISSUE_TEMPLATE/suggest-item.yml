@@ -1,0 +1,53 @@
+name: Suggest a new item
+description: Propose a new principle, checklist item, role, glossary term or reference.
+title: "[Suggestion] <short summary>"
+labels: ["suggestion", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest something the guideline does not cover yet.
+        Please do not include personal data or confidential project information.
+  - type: dropdown
+    id: item-type
+    attributes:
+      label: What kind of item?
+      options:
+        - Principle
+        - Lifecycle checklist item
+        - Role or responsibility
+        - Glossary term
+        - Reference / resource
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Short title
+      placeholder: e.g. "Document the uncertainty of EO-derived indicators"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What should be added, and where in the guideline?
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is it needed?
+      description: Risk addressed, requirement (e.g. EU AI Act article), or practical experience.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources (optional)
+      description: Standards, papers, regulation or other references.
+  - type: input
+    id: affiliation
+    attributes:
+      label: Your organisation / role (optional)

@@ -1,0 +1,13 @@
+# Build output
+site/
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+# Office lock files from editing the export
+source/~$*
