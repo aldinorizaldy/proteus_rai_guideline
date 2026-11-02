@@ -1,8 +1,8 @@
 # Executive Summary
 
-Partners that develop or use Copernicus foundation models or agents in PROTEUS must document and check their work against the responsible AI principles at each stage of the model lifecycle, and must submit the resulting evidence before a model, dataset or service is released within the project. This guideline (D1.3, version 1) gives the definitions, the risks to watch for, the requirements at each stage, and the methods and metadata to use. It is the first of two versions: version 1 fixes documentation, data-level checks and minimum reporting, and version 2 (D2.2) adds the automated validation developed in T3.4 & T4.4 once the first consortium foundation models (D3.2) are available.
+Teams that develop or use foundation models or agents for Earth observation (EO) should document and check their work against the responsible AI principles at each stage of the model lifecycle, and should have the resulting evidence reviewed before a model, dataset or service is released. This guideline gives the definitions, the risks to watch for, the requirements at each stage, and the methods and metadata to use. It was developed in the PROTEUS project, where its requirements are binding for the consortium partners (Annex F), and the core text is written so that it can be applied to EO AI work beyond the project. It is the first of two versions: version 1 fixes documentation, data-level checks and minimum reporting, and version 2 adds automated validation once the validation tools have been tested on the first foundation models.
 
-**What partners must do:**
+**What developers and deployers should do:**
 
 - Identify the requirements that apply to your role and lifecycle stage.
 
@@ -12,4 +12,4 @@ Partners that develop or use Copernicus foundation models or agents in PROTEUS m
 
 - Report calibrated uncertainty, spatially blocked validation results and per-region performance with every model.
 
-- Raise open issues with the RAI lead at HZDR, through the escalation path, before release.
+- Raise open issues with the responsible AI reviewer, through the escalation path, before release.

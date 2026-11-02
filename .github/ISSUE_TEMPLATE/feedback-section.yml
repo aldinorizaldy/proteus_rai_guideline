@@ -27,9 +27,6 @@ body:
         - "Compliance Assessment Process"
         - "Automated Validation"
         - "Governance and Monitoring"
-        - "Alignment with Use Cases"
-        - "Relationship to the Data Management Plan"
-        - "Roadmap to D2.2"
         - "Annex A: Requirements Checklist"
         - "Annex B: Compliance Card and JSON Schema"
         - "Annex C: Standards Crosswalk"
@@ -38,6 +35,10 @@ body:
         - "Annex F: PROTEUS Roles and Partner Mapping"
         - "Annex G: Use-Case Examples (UC1 to UC7)"
         - "Annex H: PROTEUS Risk-Tier Examples"
+        - "Annex I: PROTEUS Project Context and Commitments"
+        - "Annex J: Automated Validation in PROTEUS"
+        - "Annex K: Relationship to the PROTEUS Data Management Plan"
+        - "Annex L: PROTEUS Roadmap to D2.2"
         - "Other / whole guideline"
         # END sections
     validations:

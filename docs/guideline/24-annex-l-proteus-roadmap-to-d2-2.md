@@ -1,0 +1,3 @@
+# Annex L: PROTEUS Roadmap to D2.2
+
+This annex describes how this version develops into D2.2 (M36). It lists the content that is only outlined here and the plan to complete it, including the remaining strategies, the quantified evaluation criteria and thresholds, the full requirements checklist, and the move of tool-based validation from recommended to mandatory. It sets out how feedback from the first self-assessments, the audits planned for M15 to M18 and M28 to M30, the use case evaluations and changes in regulation and standards is collected and incorporated, and the schedule for review and approval of version 2.

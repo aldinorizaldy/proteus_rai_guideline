@@ -20,9 +20,6 @@ Read the guideline section by section, or <a href="../pdf/proteus-rai-guideline.
 - [10. Compliance Assessment Process](10-compliance-assessment-process.md)
 - [11. Automated Validation](11-automated-validation.md)
 - [12. Governance and Monitoring](12-governance-and-monitoring.md)
-- [13. Alignment with Use Cases](13-alignment-with-use-cases.md)
-- [14. Relationship to the Data Management Plan](14-relationship-to-the-data-management-plan.md)
-- [15. Roadmap to D2.2](15-roadmap-to-d2-2.md)
 
 </div>
 
@@ -30,13 +27,17 @@ Read the guideline section by section, or <a href="../pdf/proteus-rai-guideline.
 
 <div class="px-section-list" markdown>
 
-- [Annex A: Requirements Checklist](16-annex-a-requirements-checklist.md)
-- [Annex B: Compliance Card and JSON Schema](17-annex-b-compliance-card-and-json-schema.md)
-- [Annex C: Standards Crosswalk](18-annex-c-standards-crosswalk.md)
-- [Annex D: Glossary](19-annex-d-glossary.md)
-- [Annex E: Worked Example](20-annex-e-worked-example.md)
-- [Annex F: PROTEUS Roles and Partner Mapping](21-annex-f-proteus-roles-and-partner-mapping.md)
-- [Annex G: Use-Case Examples (UC1 to UC7)](22-annex-g-use-case-examples-uc1-to-uc7.md)
-- [Annex H: PROTEUS Risk-Tier Examples](23-annex-h-proteus-risk-tier-examples.md)
+- [Annex A: Requirements Checklist](13-annex-a-requirements-checklist.md)
+- [Annex B: Compliance Card and JSON Schema](14-annex-b-compliance-card-and-json-schema.md)
+- [Annex C: Standards Crosswalk](15-annex-c-standards-crosswalk.md)
+- [Annex D: Glossary](16-annex-d-glossary.md)
+- [Annex E: Worked Example](17-annex-e-worked-example.md)
+- [Annex F: PROTEUS Roles and Partner Mapping](18-annex-f-proteus-roles-and-partner-mapping.md)
+- [Annex G: Use-Case Examples (UC1 to UC7)](19-annex-g-use-case-examples-uc1-to-uc7.md)
+- [Annex H: PROTEUS Risk-Tier Examples](20-annex-h-proteus-risk-tier-examples.md)
+- [Annex I: PROTEUS Project Context and Commitments](21-annex-i-proteus-project-context-and-commitments.md)
+- [Annex J: Automated Validation in PROTEUS](22-annex-j-automated-validation-in-proteus.md)
+- [Annex K: Relationship to the PROTEUS Data Management Plan](23-annex-k-relationship-to-the-proteus-data.md)
+- [Annex L: PROTEUS Roadmap to D2.2](24-annex-l-proteus-roadmap-to-d2-2.md)
 
 </div>

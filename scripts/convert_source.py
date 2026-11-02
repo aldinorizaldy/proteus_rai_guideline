@@ -112,7 +112,9 @@ def slugify(text: str, maxlen: int = 50) -> str:
     text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
     text = re.sub(r"^[\d.\s]+", "", text)            # drop "1." / "2.3 " numbering
     text = re.sub(r"[^a-zA-Z0-9]+", "-", text).strip("-").lower()
-    return (text[:maxlen].rstrip("-")) or "section"
+    if len(text) > maxlen:                            # cut at a word boundary
+        text = text[:maxlen + 1].rsplit("-", 1)[0]
+    return text.strip("-") or "section"
 
 
 # --------------------------------------------------------------------------- #

@@ -1,6 +1,6 @@
 # Responsible AI Strategies
 
-This section turns the principles and risks into practice. Where the principles and risk sections say what is required and why, the strategies describe how partners can meet the requirements, with method options, guidance on choosing between them, and a minimum reporting requirement. The strategies are designed to be model-agnostic, so that they apply whichever partner develops a given FM, and they connect to the validation work in T3.4 & T4.4 (KR06). Each strategy is mapped to the principles and risks it addresses.
+This section turns the principles and risks into practice. Where the principles and risk sections say what is required and why, the strategies describe how developers can meet the requirements, with method options, guidance on choosing between them, and a minimum reporting requirement. The strategies are designed to be model-agnostic, so that they apply whoever develops a given FM, and they connect to the automated validation section. Each strategy is mapped to the principles and risks it addresses.
 
 ## Uncertainty Quantification
 
@@ -8,7 +8,7 @@ This strategy covers how to quantify and communicate uncertainty and how to veri
 
 ## Explainability
 
-This strategy covers methods that make model behaviour understandable to developers, auditors and users. It supports the transparency principle and addresses model opacity. It describes feature-attribution and saliency methods, attention and concept-based analysis, example-based explanations and, for language-based agents, grounding and traceable reasoning, with guidance on which suit pixel-level, time-series and multimodal models and which work with only input and output access. It also covers sanity checks that test whether an explanation is faithful to the model, and how explanations are presented to non-expert users of the Copernicus Agent. Minimum reporting: the method used, the model and task it was applied to, the checks performed, and known limitations.
+This strategy covers methods that make model behaviour understandable to developers, auditors and users. It supports the transparency principle and addresses model opacity. It describes feature-attribution and saliency methods, attention and concept-based analysis, example-based explanations and, for language-based agents, grounding and traceable reasoning, with guidance on which suit pixel-level, time-series and multimodal models and which work with only input and output access. It also covers sanity checks that test whether an explanation is faithful to the model, and how explanations are presented to non-expert users of EO services and agents. Minimum reporting: the method used, the model and task it was applied to, the checks performed, and known limitations.
 
 ## Out-of-Distribution and Domain-Shift Detection
 
@@ -36,4 +36,4 @@ This strategy covers how to reduce and report the energy use and emissions of tr
 
 ## Human Oversight and Dual-Use Safeguards
 
-This strategy covers how people stay in control of PROTEUS outputs and how misuse is limited. It supports the principle of social impact and addresses dual-use. It describes human-in-the-loop validation for high-stakes outputs, interfaces that show uncertainty and limitations to non-expert users, participatory design and stakeholder review, rules for who may access sensitive models and data, intended-use statements, and the review of sensitive use cases by the External Advisory Board. Minimum reporting: the points where a person can review or override an output, the users and access conditions, the sensitive uses identified and how they were reviewed, and known limitations.
+This strategy covers how people stay in control of AI outputs and how misuse is limited. It supports the principle of social impact and addresses dual-use. It describes human-in-the-loop validation for high-stakes outputs, interfaces that show uncertainty and limitations to non-expert users, participatory design and stakeholder review, rules for who may access sensitive models and data, intended-use statements, and the review of sensitive use cases by an independent advisory or ethics body. Minimum reporting: the points where a person can review or override an output, the users and access conditions, the sensitive uses identified and how they were reviewed, and known limitations.

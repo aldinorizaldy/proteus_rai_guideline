@@ -11,6 +11,9 @@ additions and editorial fixes.
 
 - Replaced the placeholder sections with the working draft from the master
   Google Doc (23 sections, including Annexes A–H).
+- Core guideline made generic for AI in Earth observation; PROTEUS-specific
+  content moved to new Annexes I–L (project context, automated validation,
+  Data Management Plan, roadmap to D2.2).
 
 ## [0.1] – 2026-11-02
 
