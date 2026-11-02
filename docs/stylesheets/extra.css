@@ -308,3 +308,7 @@
 
 /* Keyboard focus ring for scrollable tables (made focusable in extra.js) */
 .md-typeset__scrollwrap:focus-visible { outline: 3px solid var(--px-amber); outline-offset: 2px; }
+
+/* Section lists on the guideline overview: labels already carry "1." / "Annex A" */
+.md-typeset .px-section-list ul { list-style: none; margin-left: 0; padding-left: 0; }
+.md-typeset .px-section-list ul li { margin-left: 0; }

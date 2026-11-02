@@ -347,8 +347,26 @@ def replace_between(text: str, begin: str, end: str, new_body: str) -> str:
     return pat.sub(lambda m: m.group(1) + new_body + m.group(3), text, count=1)
 
 
-def update_nav(filenames):
-    body = "".join(f"      - guideline/{f}\n" for f in filenames)
+ANNEX_RE = re.compile(r"^(annex|appendix)\b", re.I)
+NUMBERED_RE = re.compile(r"^\d+(\.\d+)*\.?\s")
+
+
+def nav_labels(titles):
+    """Menu labels: main sections get "1. ", "2. ", … (unless the Doc already
+    numbers them); annexes keep their own letters ("Annex A: …")."""
+    labels, n = [], 0
+    for t in titles:
+        if ANNEX_RE.match(t) or NUMBERED_RE.match(t):
+            labels.append(t)
+        else:
+            n += 1
+            labels.append(f"{n}. {t}")
+    return labels
+
+
+def update_nav(filenames, titles):
+    body = "".join(f"      - {json.dumps(label, ensure_ascii=False)}: guideline/{f}\n"
+                   for label, f in zip(nav_labels(titles), filenames))
     MKDOCS_YML.write_text(replace_between(MKDOCS_YML.read_text(encoding="utf-8"),
                                           "BEGIN guideline-nav", "END guideline-nav", body),
                           encoding="utf-8")
@@ -377,12 +395,16 @@ def write_overview(preamble_md: str, titles, filenames, doc_title: str):
         'Read the guideline section by section, or '
         '<a href="../pdf/proteus-rai-guideline.pdf" download>download it as PDF</a>.',
         "",
-        "## Sections",
-        "",
     ]
-    numbered = all(re.match(r"^\d", t) for t in titles)   # titles already "1. …"
-    lines += [(f"- [{t}]({f})" if numbered else f"{i}. [{t}]({f})")
-              for i, (t, f) in enumerate(zip(titles, filenames), 1)]
+    entries = list(zip(nav_labels(titles), titles, filenames))
+    main = [(lab, f) for lab, t, f in entries if not ANNEX_RE.match(t)]
+    annexes = [(lab, f) for lab, t, f in entries if ANNEX_RE.match(t)]
+    def section_list(items):    # labels carry their own numbers: no bullets
+        return (['<div class="px-section-list" markdown>', ""]
+                + [f"- [{lab}]({f})" for lab, f in items] + ["", "</div>"])
+    lines += ["## Main sections", ""] + section_list(main)
+    if annexes:
+        lines += ["", "## Annexes", ""] + section_list(annexes)
     (GUIDE / "index.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -453,7 +475,7 @@ def main() -> None:
     write_overview(to_markdown(preamble, api) if preamble else "", titles, filenames, doc_title)
 
     # 3. Navigation and issue template.
-    update_nav(filenames)
+    update_nav(filenames, titles)
     update_issue_template(titles)
     print(f"{len(sections)} sections written; mkdocs.yml nav updated.\n"
           "Next: `mkdocs serve` to review, then commit docs/ and mkdocs.yml.")

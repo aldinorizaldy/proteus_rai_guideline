@@ -146,29 +146,29 @@ nav:
   - Guideline:
       - guideline/index.md
       # BEGIN guideline-nav (managed by scripts/convert_source.py)
-      - guideline/01-executive-summary.md
-      - guideline/02-introduction.md
-      - guideline/03-responsible-ai-principles.md
-      - guideline/04-foundation-model-risks.md
-      - guideline/05-regulatory-landscape.md
-      - guideline/06-data-and-intellectual-property.md
-      - guideline/07-requirements-by-lifecycle-stage.md
-      - guideline/08-responsible-ai-strategies.md
-      - guideline/09-responsible-ai-metadata-schema.md
-      - guideline/10-compliance-assessment-process.md
-      - guideline/11-automated-validation.md
-      - guideline/12-governance-and-monitoring.md
-      - guideline/13-alignment-with-use-cases.md
-      - guideline/14-relationship-to-the-data-management-plan.md
-      - guideline/15-roadmap-to-d2-2.md
-      - guideline/16-annex-a-requirements-checklist.md
-      - guideline/17-annex-b-compliance-card-and-json-schema.md
-      - guideline/18-annex-c-standards-crosswalk.md
-      - guideline/19-annex-d-glossary.md
-      - guideline/20-annex-e-worked-example.md
-      - guideline/21-annex-f-proteus-roles-and-partner-mapping.md
-      - guideline/22-annex-g-use-case-examples-uc1-to-uc7.md
-      - guideline/23-annex-h-proteus-risk-tier-examples.md
+      - "1. Executive Summary": guideline/01-executive-summary.md
+      - "2. Introduction": guideline/02-introduction.md
+      - "3. Responsible AI Principles": guideline/03-responsible-ai-principles.md
+      - "4. Foundation Model Risks": guideline/04-foundation-model-risks.md
+      - "5. Regulatory Landscape": guideline/05-regulatory-landscape.md
+      - "6. Data and Intellectual Property": guideline/06-data-and-intellectual-property.md
+      - "7. Requirements by Lifecycle Stage": guideline/07-requirements-by-lifecycle-stage.md
+      - "8. Responsible AI Strategies": guideline/08-responsible-ai-strategies.md
+      - "9. Responsible AI Metadata Schema": guideline/09-responsible-ai-metadata-schema.md
+      - "10. Compliance Assessment Process": guideline/10-compliance-assessment-process.md
+      - "11. Automated Validation": guideline/11-automated-validation.md
+      - "12. Governance and Monitoring": guideline/12-governance-and-monitoring.md
+      - "13. Alignment with Use Cases": guideline/13-alignment-with-use-cases.md
+      - "14. Relationship to the Data Management Plan": guideline/14-relationship-to-the-data-management-plan.md
+      - "15. Roadmap to D2.2": guideline/15-roadmap-to-d2-2.md
+      - "Annex A: Requirements Checklist": guideline/16-annex-a-requirements-checklist.md
+      - "Annex B: Compliance Card and JSON Schema": guideline/17-annex-b-compliance-card-and-json-schema.md
+      - "Annex C: Standards Crosswalk": guideline/18-annex-c-standards-crosswalk.md
+      - "Annex D: Glossary": guideline/19-annex-d-glossary.md
+      - "Annex E: Worked Example": guideline/20-annex-e-worked-example.md
+      - "Annex F: PROTEUS Roles and Partner Mapping": guideline/21-annex-f-proteus-roles-and-partner-mapping.md
+      - "Annex G: Use-Case Examples (UC1 to UC7)": guideline/22-annex-g-use-case-examples-uc1-to-uc7.md
+      - "Annex H: PROTEUS Risk-Tier Examples": guideline/23-annex-h-proteus-risk-tier-examples.md
       # END guideline-nav
   - How to cite: cite.md
   - Changelog: changelog.md
