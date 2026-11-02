@@ -1,0 +1,3 @@
+# Alignment with Use Cases
+
+This section relates the guideline to the seven PROTEUS use cases: displacement monitoring (UC1), crop stress (UC2), irrigation (UC3), urban air quality (UC4), wildfires (UC5), flood risk (UC6) and research and education (UC7). For each use case it identifies the principles and risks that matter most, for example geoprivacy and social sensitivity in UC1, out-of-distribution detection for crop monitoring in UC2, and calibrated uncertainty for time-critical decisions in UC5 and UC6. It describes how the use case leads apply the self-assessment and how the results feed the cross-use-case evaluation of KR06.

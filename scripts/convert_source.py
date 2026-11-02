@@ -11,7 +11,11 @@ What it does (content is converted, never rewritten):
   * the document is split at every heading of --level (default: Heading 1);
     text before the first heading goes to docs/guideline/index.md;
   * headings, tables, footnotes (kept per section) and figures with captions
-    are preserved; images are extracted to docs/assets/guideline-media/;
+    are preserved; images are extracted to docs/assets/guideline-media/
+    and large ones re-encoded as WebP;
+  * the Doc's own table of contents is dropped (the site has navigation);
+  * indented paragraphs (read by pandoc as block quotes) become normal
+    paragraphs, unless --keep-quotes is given;
   * internal links (e.g. a table of contents or "see section 3") are pointed
     at the right page and heading;
   * the "Guideline" nav block in mkdocs.yml, the overview page and the section
@@ -128,6 +132,81 @@ def fix_images(blocks, page_dir: Path) -> None:
             if p.exists():
                 target[0] = Path(rel(p, page_dir)).as_posix()
     walk(blocks, fn)
+
+
+def drop_doc_toc(blocks, min_run: int = 3):
+    """Remove the Google Doc's own table of contents: a run of paragraphs
+    that each contain nothing but one internal link (e.g. "1.1 Scope  4").
+    The website has its own navigation, and page numbers mean nothing there."""
+    def is_toc_entry(b):
+        if b.get("t") not in ("Para", "Plain"):
+            return False
+        inl = [x for x in b["c"] if x.get("t") not in ("Space", "SoftBreak", "LineBreak")]
+        return (len(inl) == 1 and inl[0].get("t") == "Link"
+                and inl[0]["c"][2][0].startswith("#"))
+    out, run = [], []
+    for b in blocks + [{"t": "Null"}]:
+        if is_toc_entry(b):
+            run.append(b)
+            continue
+        if len(run) < min_run:
+            out.extend(run)
+        else:
+            print(f"  dropped the Doc's table of contents ({len(run)} entries)")
+        run = []
+        if b.get("t") != "Null":
+            out.append(b)
+    return out
+
+
+def unwrap_quotes(blocks):
+    """Google Docs exports indented paragraphs as Word indentation, which
+    pandoc reads as block quotes. Turn them back into normal paragraphs
+    (disable with --keep-quotes if the Doc uses real quotations)."""
+    out = []
+    for b in blocks:
+        t, c = b.get("t"), b.get("c")
+        if t == "BlockQuote":
+            out.extend(unwrap_quotes(c))
+            continue
+        if t == "Div":
+            c[1] = unwrap_quotes(c[1])
+        out.append(b)
+    return out
+
+
+def optimize_media(blocks, max_kb: int = 300, max_px: int = 1600) -> None:
+    """Re-encode large extracted raster images as WebP (resized to at most
+    `max_px` on the long side) and point the image references at them."""
+    try:
+        from PIL import Image as PILImage
+    except ImportError:
+        print("  ! Pillow not installed – images left unoptimised")
+        return
+    done = {}
+    for p in sorted(MEDIA.rglob("*")):
+        if p.suffix.lower() not in (".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff"):
+            continue
+        if p.stat().st_size <= max_kb * 1024:
+            continue
+        im = PILImage.open(p)
+        im = im.convert("RGBA" if im.mode in ("RGBA", "LA", "P") else "RGB")
+        im.thumbnail((max_px, max_px), PILImage.LANCZOS)
+        dst = p.with_suffix(".webp")
+        im.save(dst, "WEBP", quality=85, method=6)
+        print(f"  {p.name}: {p.stat().st_size // 1024} KB -> {dst.name}: "
+              f"{dst.stat().st_size // 1024} KB")
+        p.unlink()
+        done[p.relative_to(ROOT).as_posix()] = dst.relative_to(ROOT).as_posix()
+
+    def fn(el):
+        if el.get("t") == "Image":
+            target = el["c"][2]
+            key = Path(target[0]).as_posix()
+            if key in done:
+                target[0] = done[key]
+    if done:
+        walk(blocks, fn)
 
 
 def rel(path: Path, start: Path) -> str:
@@ -314,6 +393,8 @@ def main() -> None:
                     help="file to convert (default: newest .docx/.md/.odt in source/)")
     ap.add_argument("--level", type=int, default=1,
                     help="heading level that starts a new page (default 1)")
+    ap.add_argument("--keep-quotes", action="store_true",
+                    help="keep indented paragraphs as block quotes")
     args = ap.parse_args()
 
     src = args.source
@@ -338,7 +419,12 @@ def main() -> None:
     api = ast["pandoc-api-version"]
     doc_title = stringify(ast.get("meta", {}).get("title", {}).get("c", [])).strip()
 
-    blocks = figures_to_md_in_html(ast["blocks"])
+    blocks = ast["blocks"]
+    if not args.keep_quotes:
+        blocks = unwrap_quotes(blocks)
+    blocks = drop_doc_toc(blocks)
+    optimize_media(blocks)
+    blocks = figures_to_md_in_html(blocks)
     preamble, sections = split_sections(blocks, args.level)
     if not sections:
         sys.exit(f"No level-{args.level} headings found. Use Heading {args.level} "

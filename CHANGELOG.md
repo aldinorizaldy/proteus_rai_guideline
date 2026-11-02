@@ -7,6 +7,11 @@ additions and editorial fixes.
 
 ## [Unreleased]
 
+### Changed
+
+- Replaced the placeholder sections with the working draft from the master
+  Google Doc (23 sections, including Annexes A–H).
+
 ## [0.1] – 2026-11-02
 
 ### Added

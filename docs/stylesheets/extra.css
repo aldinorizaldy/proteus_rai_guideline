@@ -305,3 +305,6 @@
   .md-typeset h2 { break-after: avoid; }
   .md-typeset table, .md-typeset figure, .md-typeset .admonition { break-inside: avoid; }
 }
+
+/* Keyboard focus ring for scrollable tables (made focusable in extra.js) */
+.md-typeset__scrollwrap:focus-visible { outline: 3px solid var(--px-amber); outline-offset: 2px; }

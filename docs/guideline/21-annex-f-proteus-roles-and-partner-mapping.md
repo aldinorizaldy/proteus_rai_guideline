@@ -1,0 +1,3 @@
+# Annex F: PROTEUS Roles and Partner Mapping
+
+This annex maps the generic roles defined in the Roles and Responsibilities subsection to the PROTEUS partners, work packages and tasks. For each role it names the partners that hold it (the partners that pretrain or fine-tune foundation models, the data and platform providers in WP9 and WP10, SERCO for the Data Management Plan, the use case leads for UC1 to UC7, the RAI lead at HZDR and the External Advisory Board), the requirement areas they are responsible for, and the contact point. It also records who holds the decision rights at release, meaning who may approve, defer or block a model, dataset or service, and how the mapping is updated when roles change during the project.

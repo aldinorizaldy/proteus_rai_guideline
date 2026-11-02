@@ -27,4 +27,17 @@
       function () { /* clipboard blocked: the link still navigates */ }
     );
   });
+
+  // Wide tables scroll sideways on small screens; make each scroll area
+  // reachable by keyboard (WCAG 2.1.1) and give it a name.
+  function focusableTables() {
+    document.querySelectorAll(".md-typeset__scrollwrap").forEach(function (wrap) {
+      if (wrap.hasAttribute("tabindex")) return;
+      wrap.setAttribute("tabindex", "0");
+      wrap.setAttribute("role", "region");
+      wrap.setAttribute("aria-label", "Table (scrolls sideways)");
+    });
+  }
+  if (window.document$) window.document$.subscribe(focusableTables);
+  else document.addEventListener("DOMContentLoaded", focusableTables);
 })();

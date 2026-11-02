@@ -146,12 +146,29 @@ nav:
   - Guideline:
       - guideline/index.md
       # BEGIN guideline-nav (managed by scripts/convert_source.py)
-      - guideline/01-introduction.md
-      - guideline/02-principles.md
-      - guideline/03-lifecycle-checklist.md
-      - guideline/04-roles-and-responsibilities.md
-      - guideline/05-glossary.md
-      - guideline/06-references.md
+      - guideline/01-executive-summary.md
+      - guideline/02-introduction.md
+      - guideline/03-responsible-ai-principles.md
+      - guideline/04-foundation-model-risks.md
+      - guideline/05-regulatory-landscape.md
+      - guideline/06-data-and-intellectual-property.md
+      - guideline/07-requirements-by-lifecycle-stage.md
+      - guideline/08-responsible-ai-strategies.md
+      - guideline/09-responsible-ai-metadata-schema.md
+      - guideline/10-compliance-assessment-process.md
+      - guideline/11-automated-validation.md
+      - guideline/12-governance-and-monitoring.md
+      - guideline/13-alignment-with-use-cases.md
+      - guideline/14-relationship-to-the-data-management-plan.md
+      - guideline/15-roadmap-to-d2-2.md
+      - guideline/16-annex-a-requirements-checklist.md
+      - guideline/17-annex-b-compliance-card-and-json-schema.md
+      - guideline/18-annex-c-standards-crosswalk.md
+      - guideline/19-annex-d-glossary.md
+      - guideline/20-annex-e-worked-example.md
+      - guideline/21-annex-f-proteus-roles-and-partner-mapping.md
+      - guideline/22-annex-g-use-case-examples-uc1-to-uc7.md
+      - guideline/23-annex-h-proteus-risk-tier-examples.md
       # END guideline-nav
   - How to cite: cite.md
   - Changelog: changelog.md
