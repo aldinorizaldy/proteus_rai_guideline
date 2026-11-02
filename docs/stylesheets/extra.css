@@ -312,3 +312,23 @@
 /* Section lists on the guideline overview: labels already carry "1." / "Annex A" */
 .md-typeset .px-section-list ul { list-style: none; margin-left: 0; padding-left: 0; }
 .md-typeset .px-section-list ul li { margin-left: 0; }
+
+/* ---------------------------------------------------------------------------
+   Wider layout on desktop. Material centres everything in a 61rem column and
+   gives the menu a fixed 12.1rem, which leaves empty margins on wide screens
+   and wraps long section titles. Let the page use the width, give the menu
+   room for one-line titles, and keep the reading column at a readable
+   measure (centred between the menu and the table of contents).
+   --------------------------------------------------------------------------- */
+@media screen and (min-width: 76.25em) {
+  .md-grid { max-width: 100rem; }
+  .md-sidebar--primary { width: 17.5rem; }
+  /* Material pads the sidebar so the menu stays 11.5rem wide; use it all. */
+  [dir=ltr] .md-sidebar--primary .md-sidebar__inner { padding-right: 0.6rem; }
+  .md-content__inner { max-width: 46rem; margin-left: auto; margin-right: auto; }
+  /* The home page has no menu: keep its hero and content in the original
+     centred column so they line up. */
+  .px-hero__inner.md-grid,
+  .md-main__inner:has(.px-home) { max-width: 61rem; }
+  .md-content__inner:has(.px-home) { max-width: none; }
+}
