@@ -11,3 +11,5 @@ venv/
 .vscode/
 # Office lock files from editing the export
 source/~$*
+# Copied from source/ by scripts/build_from_docx.py at build time
+docs/downloads/

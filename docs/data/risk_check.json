@@ -1,0 +1,93 @@
+{
+  "status": "draft",
+  "note": "Draft – to be confirmed by the RAI lead",
+  "questions": [
+    {
+      "hint": "For example, wrongly identifying flood-exposed infrastructure during emergency response.",
+      "source": [
+        "risks"
+      ],
+      "id": "safety",
+      "text": "Could an error substantially affect safety or critical infrastructure?",
+      "if_yes": "high",
+      "source_md": "[Section 4 · Foundation Model Risks](../guideline/04-foundation-model-risks.md)"
+    },
+    {
+      "hint": "",
+      "source": [
+        "risks"
+      ],
+      "id": "consequential",
+      "text": "Could an error substantially affect sensitive information or consequential decisions?",
+      "if_yes": "high",
+      "source_md": "[Section 4 · Foundation Model Risks](../guideline/04-foundation-model-risks.md)"
+    },
+    {
+      "hint": "",
+      "source": [
+        "tiers"
+      ],
+      "id": "vulnerable",
+      "text": "Do the outputs concern vulnerable populations or inform emergency response?",
+      "if_yes": "high",
+      "source_md": "[Annex H · PROTEUS Risk-Tier Examples](../guideline/20-annex-h-proteus-risk-tier-examples.md)"
+    },
+    {
+      "hint": "For example, an incorrect vegetation-change assessment influencing environmental monitoring results.",
+      "source": [
+        "risks"
+      ],
+      "id": "analysis",
+      "text": "Could an error affect analytical reliability, interpretation or planning?",
+      "if_yes": "medium",
+      "source_md": "[Section 4 · Foundation Model Risks](../guideline/04-foundation-model-risks.md)"
+    },
+    {
+      "hint": "Low-tier errors are \"readily detectable and correctable\".",
+      "source": [
+        "risks",
+        "tiers"
+      ],
+      "id": "detectable",
+      "text": "Would an error be hard to detect or to correct?",
+      "if_yes": "medium",
+      "source_md": "[Section 4 · Foundation Model Risks](../guideline/04-foundation-model-risks.md) · [Annex H · PROTEUS Risk-Tier Examples](../guideline/20-annex-h-proteus-risk-tier-examples.md)"
+    },
+    {
+      "hint": "The degree of autonomy is one of the reasons for a tier.",
+      "source": [
+        "tiers"
+      ],
+      "id": "autonomy",
+      "text": "Will outputs be used without a person checking them first?",
+      "if_yes": "medium",
+      "source_md": "[Annex H · PROTEUS Risk-Tier Examples](../guideline/20-annex-h-proteus-risk-tier-examples.md)"
+    }
+  ],
+  "tiers": {
+    "low": {
+      "description": "Limited consequences, with errors readily detectable and correctable.",
+      "example": "An incorrect land-cover description in an exploratory application with no operational consequences.",
+      "triggers": [
+        "Standard self-assessment with the compliance card"
+      ]
+    },
+    "medium": {
+      "description": "Errors may affect analytical reliability, interpretation, or planning, but can be identified and corrected through validation.",
+      "example": "An incorrect vegetation-change assessment influencing environmental monitoring results.",
+      "triggers": [
+        "Validation to identify and correct errors before use"
+      ]
+    },
+    "high": {
+      "description": "Errors could substantially affect safety, critical infrastructure, sensitive information, or consequential decisions.",
+      "example": "Incorrectly identifying flood-exposed infrastructure during emergency response, potentially misleading operational decisions.",
+      "triggers": [
+        "Mandatory human check before release",
+        "Escalation to the External Advisory Board where needed"
+      ]
+    }
+  },
+  "tier_source": "[Section 4 · Foundation Model Risks](../guideline/04-foundation-model-risks.md)",
+  "examples_source": "[Annex H · PROTEUS Risk-Tier Examples](../guideline/20-annex-h-proteus-risk-tier-examples.md)"
+}

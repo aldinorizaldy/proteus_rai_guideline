@@ -1,0 +1,61 @@
+# Risk-tier self-check (docs/tools/risk-check.md)
+#
+# Edited by the RAI lead; read by scripts/build_from_docx.py. No code changes
+# are needed to change the questions, the logic or the triggers.
+#
+# Logic: the suggested tier is the highest `if_yes` tier among the questions
+# answered "yes"; if none is "yes", the tier is low.
+# `source` lists where each question comes from (keys of SECTIONS in
+# build_from_docx.py: risks = "Foundation Model Risks", tiers = the
+# "Risk-Tier Examples" annex).
+#
+# DRAFT: derived from the tier descriptions in the risk section and the
+# reasons listed in the risk-tier annex. To be confirmed by the RAI lead.
+
+status: draft
+note: Draft – to be confirmed by the RAI lead
+
+questions:
+  - id: safety
+    text: Could an error substantially affect safety or critical infrastructure?
+    hint: For example, wrongly identifying flood-exposed infrastructure during emergency response.
+    if_yes: high
+    source: [risks]
+  - id: consequential
+    text: Could an error substantially affect sensitive information or consequential decisions?
+    if_yes: high
+    source: [risks]
+  - id: vulnerable
+    text: Do the outputs concern vulnerable populations or inform emergency response?
+    if_yes: high
+    source: [tiers]
+  - id: analysis
+    text: Could an error affect analytical reliability, interpretation or planning?
+    hint: For example, an incorrect vegetation-change assessment influencing environmental monitoring results.
+    if_yes: medium
+    source: [risks]
+  - id: detectable
+    text: Would an error be hard to detect or to correct?
+    hint: Low-tier errors are "readily detectable and correctable".
+    if_yes: medium
+    source: [risks, tiers]
+  - id: autonomy
+    text: Will outputs be used without a person checking them first?
+    hint: The degree of autonomy is one of the reasons for a tier.
+    if_yes: medium
+    source: [tiers]
+
+# What each tier triggers. Annex H names "a mandatory human check before
+# release or escalation to the External Advisory Board" as examples, without
+# assigning them to tiers yet; the assignment below is the draft.
+tiers:
+  low:
+    triggers:
+      - Standard self-assessment with the compliance card
+  medium:
+    triggers:
+      - Validation to identify and correct errors before use
+  high:
+    triggers:
+      - Mandatory human check before release
+      - Escalation to the External Advisory Board where needed

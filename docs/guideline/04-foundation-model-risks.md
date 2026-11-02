@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Foundation Model Risks
 
 This section is a risk register for foundation models in EO. FMs support generalisation across EO applications, and they bring risks that differ from those of task-specific models. The points needing particular attention are hallucination, overfitting to training distributions, opacity in large models, security vulnerabilities such as adversarial attacks or model inversion, and geoprivacy and potential geopolitical sensitivities in satellite-based inferences. For each risk, the subsections below describe what it is, how it appears in EO, and which principles and strategies address it. Advanced AI systems also have dual-use potential, which is handled through governance and access conditions. The register is reviewed and extended in each version of the guideline.

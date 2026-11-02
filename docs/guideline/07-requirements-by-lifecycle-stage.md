@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Requirements by Lifecycle Stage
 
 This section turns the principles and risks into requirements that a developer can follow in the order of their own work. It is organised by lifecycle stage (data collection and curation, model design and training, evaluation and validation, release and documentation, and deployment and monitoring), which matches the stages of the compliance card. In each subsection a table lists the requirements for that stage, each with an identifier, a binding level (must, should or may), the principle or risk it addresses, the role responsible and the evidence to submit. Requirements marked must apply from this version. Requirements that depend on tools still being developed are marked should and become mandatory in version 2. Requirements are written so that they can be checked with input and output evidence, which allows them to apply to proprietary or third-party models.

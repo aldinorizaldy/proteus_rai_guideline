@@ -1,0 +1,49 @@
+name: Compliance card submission
+description: Submit a compliance card (downloaded from Quick tools → Compliance card) for review.
+title: "[Compliance card] <dataset, model or service> – <stage gate>"
+labels: ["compliance-card"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in the card on the website (**Quick tools → Compliance card**), download it as
+        JSON, and attach the file below. **Issues are public**: do not attach personal or
+        confidential data. If the card contains anything confidential, email it to the
+        responsible AI reviewer instead.
+  - type: input
+    id: item
+    attributes:
+      label: Dataset, model or service
+      description: Name and version.
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Stage gate
+      options:
+        - Data collection
+        - Model training
+        - Reporting or deployment
+    validations:
+      required: true
+  - type: textarea
+    id: card
+    attributes:
+      label: Compliance card (JSON)
+      description: Drag the downloaded .json file here, or paste its contents.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Open issues or requested exceptions
+      description: Anything the reviewer should look at first.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before you submit
+      options:
+        - label: The attachment contains no personal or confidential data.
+          required: true

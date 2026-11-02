@@ -1,0 +1,75 @@
+{% from "_macros.j2" import source %}
+{{ front }}
+
+# Quick tools
+
+<div class="px-audience" markdown>
+**Quick tools are for anyone building, training, evaluating or releasing a model, dataset or agent workflow in PROTEUS. If you only want to understand the guideline, read [At a glance]({{ rel("at-a-glance.md") }}).**
+</div>
+
+The tools are derived from the guideline and add no rules of their own. Each one shows where its content comes from; when an annex is still an outline, the tool says so.
+
+{% set uc_filled = use_cases | selectattr("found") | list | length %}
+<div class="grid cards px-tool-cards" markdown>
+
+-   :material-flag-checkered:{ .lg } **Start here**
+
+    ---
+
+    Five steps from finding your role to submitting the compliance card.
+
+    [:octicons-arrow-right-24: Start here]({{ rel("tools/start-here.md") }})
+
+    {{ source([S.intro.link(page, "roles-and-responsibilities"), S.compliance.link(page)]) }}
+
+-   :material-earth:{ .lg } **Use cases**{% if not uc_filled %} <span class="px-soon__tag">Coming soon</span>{% endif %}
+
+    ---
+
+    What matters most for each PROTEUS use case, UC1 to UC{{ use_cases | length }}.
+
+    [:octicons-arrow-right-24: Browse use cases]({{ rel("tools/use-cases/index.md") }})
+
+    {{ source([S.usecases.link(page), S.tiers.link(page)]) }}
+
+-   :material-checkbox-marked-outline:{ .lg } **Requirements checklist**{% if reqs.status != "ok" %} <span class="px-soon__tag">Coming soon</span>{% endif %}
+
+    ---
+
+    Filter the requirements by role, stage and binding level; tick them off and export.
+
+    [:octicons-arrow-right-24: Open the checklist]({{ rel("tools/checklist.md") }})
+
+    {{ source([S.checklist.link(page)]) }}
+
+-   :material-gauge:{ .lg } **Risk-tier self-check**
+
+    ---
+
+    A few yes/no questions that suggest a low, medium or high tier.
+
+    [:octicons-arrow-right-24: Check your tier]({{ rel("tools/risk-check.md") }})
+
+    {{ source([S.risks.link(page), S.tiers.link(page)]) }}
+
+-   :material-file-document-edit-outline:{ .lg } **Compliance card**{% if schema["x-status"] != "ok" %} <span class="px-soon__tag">Coming soon</span>{% endif %}
+
+    ---
+
+    Fill in the card at each stage gate; download it as JSON or PDF.
+
+    [:octicons-arrow-right-24: Open the form]({{ rel("tools/compliance-card.md") }})
+
+    {{ source([S.card.link(page), S.compliance.link(page)]) }}
+
+-   :material-school-outline:{ .lg } **Worked example**{% if not steps %} <span class="px-soon__tag">Coming soon</span>{% endif %}
+
+    ---
+
+    One model taken through every step, with a filled checklist and card.
+
+    [:octicons-arrow-right-24: See the example]({{ rel("tools/worked-example.md") }})
+
+    {{ source([S.worked.link(page)]) }}
+
+</div>

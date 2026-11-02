@@ -1,0 +1,116 @@
+{% from "_macros.j2" import source, soon %}
+{{ front }}
+
+# Guideline at a glance
+
+<div class="px-disclaimer" markdown>
+**Summary of the full guideline. If they differ, the full guideline applies.**
+Every block below is quoted from the guideline and links to its source.
+</div>
+
+## What it is and who it is for
+
+{% if g.what %}{{ g.what | join(" ") }}{% else %}{{ soon(S.intro.link(page)) }}{% endif %}
+
+Version {{ extra.version }} ({{ extra.release_date }}), the web version of deliverable {{ extra.deliverable }}.
+
+{{ source([S.intro.link(page)]) }}
+
+## The {{ g.principles | length }} principles
+
+{% for p in g.principles -%}
+- [**{{ p.title }}**]({{ rel(S.principles.path) }}#{{ p.title | slug }}): {{ p.line }}
+{% else %}
+{{ soon(S.principles.link(page)) }}
+{% endfor %}
+
+{{ source([S.principles.link(page)]) }}
+
+## Main foundation-model risks
+
+{% for p in g.risks -%}
+- [**{{ p.title }}**]({{ rel(S.risks.path) }}#{{ p.title | slug }}): {{ p.line }}
+{% else %}
+{{ soon(S.risks.link(page)) }}
+{% endfor %}
+
+{{ source([S.risks.link(page)]) }}
+
+## Risk tiers
+
+{% if g.tier_table %}
+{{ g.tier_table }}
+
+Examples of tiers for PROTEUS models, datasets and use cases are collected in {{ S.tiers.link(page) }}.
+{% else %}
+{{ soon(S.risks.link(page)) }}
+{% endif %}
+
+{{ source([S.risks.link(page), S.tiers.link(page)]) }}
+
+## Who does what
+
+{% for r in g.roles -%}
+- {{ r }}
+{% else %}
+{{ soon(S.intro.link(page, "roles-and-responsibilities")) }}
+{% endfor %}
+
+{{ source([S.intro.link(page, "roles-and-responsibilities"), S.roles_map.link(page)]) }}
+
+## Must, should, may – and what changes in version 2
+
+{% if g.binding_defs %}
+{% for term in ["must", "should", "may"] if term in g.binding_defs -%}
+- **{{ term }}**: {{ g.binding_defs[term] }}
+{% endfor %}
+{% else %}
+{{ soon(S.glossary.link(page), "Definitions of must, should and may. ") }}
+{% endif %}
+{% for v in g.v2 -%}
+- {{ v.text }}
+{% endfor %}
+
+{{ source([S.glossary.link(page)] + (g.v2 | map(attribute="source") | unique | list)) }}
+
+## Key obligations for builders
+
+{% if g.obligations %}
+{{ g.obligations }}
+{% else %}
+{{ soon(S.exec.link(page)) }}
+{% endif %}
+
+[Go to Quick tools :octicons-arrow-right-24:]({{ rel("tools/index.md") }}){ .md-button .md-button--primary }
+
+{{ source([S.exec.link(page)]) }}
+
+## Where to go next
+
+<div class="grid cards" markdown>
+
+-   :material-book-open-page-variant-outline:{ .lg } **The full guideline**
+
+    ---
+
+    Every section and annex, identical to deliverable {{ extra.deliverable }}.
+
+    [:octicons-arrow-right-24: Read the guideline]({{ rel("guideline/index.md") }})
+
+-   :material-hammer-wrench:{ .lg } **Quick tools**
+
+    ---
+
+    Building, training or releasing something? Checklists and forms.
+
+    [:octicons-arrow-right-24: Open Quick tools]({{ rel("tools/index.md") }})
+
+-   :material-earth:{ .lg } **Use cases**
+
+    ---
+
+    How the guideline applies to each PROTEUS use case.
+
+    [:octicons-arrow-right-24: Browse use cases]({{ rel("tools/use-cases/index.md") }})
+
+</div>

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "UC1",
+    "slug": "uc1",
+    "name": "Displacement monitoring",
+    "found": false,
+    "tiers": [],
+    "requirements": []
+  },
+  {
+    "id": "UC2",
+    "slug": "uc2",
+    "name": "Crop stress",
+    "found": false,
+    "tiers": [],
+    "requirements": []
+  },
+  {
+    "id": "UC3",
+    "slug": "uc3",
+    "name": "Irrigation",
+    "found": false,
+    "tiers": [],
+    "requirements": []
+  },
+  {
+    "id": "UC4",
+    "slug": "uc4",
+    "name": "Urban air quality",
+    "found": false,
+    "tiers": [],
+    "requirements": []
+  },
+  {
+    "id": "UC5",
+    "slug": "uc5",
+    "name": "Wildfires",
+    "found": false,
+    "tiers": [],
+    "requirements": []
+  },
+  {
+    "id": "UC6",
+    "slug": "uc6",
+    "name": "Flood risk",
+    "found": false,
+    "tiers": [],
+    "requirements": []
+  },
+  {
+    "id": "UC7",
+    "slug": "uc7",
+    "name": "Research and education",
+    "found": false,
+    "tiers": [],
+    "requirements": []
+  }
+]

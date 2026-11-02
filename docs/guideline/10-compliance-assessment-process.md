@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Compliance Assessment Process
 
 This section defines how outputs are checked against the guideline. It describes a self-assessment workflow in which the responsible developer completes a compliance card at three lifecycle stages (data collection, model training, and reporting or deployment), giving the status of each parameter together with a justification and evidence. It sets out the trigger points at which an assessment is required, the roles involved (the submitting developer, the responsible AI reviewer, and an independent advisory or ethics body for escalation), how results are logged and shared, and how the findings feed the evaluation of responsible AI across use cases. Results are exported in machine-readable form so that they can be aggregated and audited. The PROTEUS reviewers and the link to the project's key results are given in Annexes F and J.

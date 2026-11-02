@@ -1,0 +1,46 @@
+{% from "_macros.j2" import source, soon %}
+{{ front }}
+
+# Requirements checklist
+
+Every requirement of the guideline in one table. Filter by your role and lifecycle stage, tick items off as you go, and export the result. Your ticks are kept in this browser only.
+
+{{ source([S.checklist.link(page)]) }}
+
+{% if reqs.status == "ok" %}
+{% set items = reqs["items"] %}
+{% macro options(field) -%}
+{% for v in items | map(attribute=field) | reject("equalto", "") | unique | sort %}<option value="{{ v | e }}">{{ v | e }}</option>{% endfor %}
+{%- endmacro %}
+<div class="px-tool px-checklist" data-px-checklist data-storage-key="proteus-rai-checklist:{{ extra.version }}">
+<form class="px-filters" role="search" aria-label="Filter requirements" onsubmit="return false">
+<label>Role <select data-filter="role"><option value="">All roles</option>{{ options("role") }}</select></label>
+<label>Lifecycle stage <select data-filter="stage"><option value="">All stages</option>{{ options("stage") }}</select></label>
+<label>Binding level <select data-filter="binding"><option value="">Must, should, may</option>{% for b in ["must", "should", "may"] if b in (items | map(attribute="binding") | list) %}<option value="{{ b }}">{{ b }}</option>{% endfor %}</select></label>
+{% if reqs.has_use_case_column %}<label>Use case <select data-filter="uc"><option value="">All use cases</option>{% for uc in use_cases %}<option value="{{ uc.id }}">{{ uc.id }}{% if uc.name %} · {{ uc.name | e }}{% endif %}</option>{% endfor %}</select></label>{% endif %}
+<label class="px-filters__search">Search <input type="search" data-filter="q" placeholder="Text or ID"></label>
+</form>
+<div class="px-toolbar">
+<p class="px-count" aria-live="polite" data-count>{{ items | length }} requirements</p>
+<button type="button" class="md-button" data-action="csv">Export CSV</button>
+<button type="button" class="md-button" data-action="print">Print / save as PDF</button>
+<button type="button" class="md-button" data-action="clear">Clear ticks</button>
+</div>
+<div class="px-table-wrap" tabindex="0" role="region" aria-label="Requirements (scrolls sideways)">
+<table class="px-table">
+<thead><tr><th scope="col">Done</th><th scope="col">ID</th><th scope="col">Requirement</th><th scope="col">Lifecycle stage</th><th scope="col">Responsible role</th><th scope="col">Binding level</th><th scope="col">Evidence</th>{% if reqs.has_use_case_column %}<th scope="col">Use case</th>{% endif %}</tr></thead>
+<tbody>
+{% for r in items %}
+<tr id="{{ r.id | e }}" data-id="{{ r.id | e }}" data-role="{{ r.role | e }}" data-stage="{{ r.stage | e }}" data-binding="{{ r.binding | e }}" data-uc="{{ r.use_cases | join(' ') }}"><td><input type="checkbox" aria-label="Done: {{ r.id | e }}"></td><td><a href="#{{ r.id | e }}">{{ r.id | e }}</a></td><td>{{ r.requirement | e }}</td><td>{{ r.stage | e }}</td><td>{{ r.role | e }}</td><td><span class="px-binding px-binding--{{ r.binding | e }}">{{ r.binding | e }}</span></td><td>{{ r.evidence | e }}</td>{% if reqs.has_use_case_column %}<td>{{ (r.use_case_text or "All") | e }}</td>{% endif %}</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+
+The data behind this table: [requirements.json]({{ rel("data/requirements.json") }}).
+{% else %}
+{{ soon(S.checklist.link(page), "The requirement list (ID, requirement, lifecycle stage, responsible role, binding level, evidence). ") }}
+
+Until then, the requirements are described per lifecycle stage in {{ S.lifecycle.link(page) }}.
+{% endif %}

@@ -7,6 +7,17 @@ additions and editorial fixes.
 
 ## [Unreleased]
 
+### Added
+
+- **At a glance** page: a 5-minute summary quoted from the guideline, with a
+  source link on every block.
+- **Quick tools** for people who build, train or release models, datasets or
+  agents: Start here, use-case pages, requirements checklist, risk-tier
+  self-check, compliance card and worked example. They are generated from the
+  annexes and show "Coming soon" until an annex is filled in.
+- Every Guideline page links the official document (Word and PDF).
+- "Compliance card submission" issue template.
+
 ### Changed
 
 - Replaced the placeholder sections with the working draft from the master

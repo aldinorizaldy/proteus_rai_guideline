@@ -35,6 +35,15 @@ jobs:
       - name: Prepare brand assets (favicons, transparent logo, hero image)
         run: python scripts/prepare_assets.py
 
+      - name: Build pages and tool data from the docx
+        run: python scripts/build_from_docx.py
+
+      - name: Check the Guideline tab matches the docx
+        run: python scripts/check_guideline.py
+
+      - name: Test the docx pipeline on the sample guideline
+        run: python -m unittest discover -s tests -v
+
       - name: Build site (strict)
         run: mkdocs build --strict
 

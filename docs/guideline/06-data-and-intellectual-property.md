@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Data and Intellectual Property
 
 This section sets out how data, models and their outputs are handled with respect to licences, ownership and reuse. It covers the provenance and licence of every dataset used for training or evaluation, including open Copernicus and other public EO data, commercial or restricted imagery, in-situ and reference data, and labels produced by third parties or through crowdsourcing, and the conditions these licences place on training, redistribution and the release of derived products. It distinguishes background IP that contributors bring into a project, such as pretrained models, code and datasets, from foreground IP generated within it, and states how each is accessed, assessed and protected, in line with the applicable grant and consortium agreements. It also covers model weights and checkpoints, including whether the terms of a training dataset carry over to the model, derived outputs such as maps, labels and embeddings, attribution and citation, and the conditions under which data, models and outputs are released openly, shared under restricted access or kept internal, taking privacy, geoprivacy and dual-use concerns into account. Licence and provenance information is recorded in the responsible AI metadata so that it can be checked at release, and the section is coordinated with the data management plan.

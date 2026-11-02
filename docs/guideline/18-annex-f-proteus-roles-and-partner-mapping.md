@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Annex F: PROTEUS Roles and Partner Mapping
 
 This annex maps the generic roles defined in the Roles and Responsibilities subsection to the PROTEUS partners, work packages and tasks, and states how the guideline is binding within the project. Within PROTEUS, partners that develop or use Copernicus foundation models or agents must document and check their work against the guideline at each lifecycle stage and submit the resulting evidence before a model, dataset or service is released within the project. They identify the requirements that apply to their role and stage, complete the compliance card at data collection, model training and release, attach the machine-readable responsible AI metadata to every dataset and model they deliver, report calibrated uncertainty, spatially blocked validation results and per-region performance with every model, and raise open issues with the RAI lead at HZDR through the escalation path before release. For each role the annex names the partners that hold it (the partners that pretrain or fine-tune foundation models, the data and platform providers in WP9 and WP10, SERCO for the Data Management Plan, the use case leads for UC1 to UC7, the RAI lead at HZDR as reviewer, and the External Advisory Board as the independent advisory body), the requirement areas they are responsible for, and the contact point for questions and exceptions. It also records who holds the decision rights at release, meaning who may approve, defer or block a model, dataset or service, how background IP brought by partners is treated under the Grant Agreement and the Consortium Agreement, and how the mapping is updated when roles change during the project.

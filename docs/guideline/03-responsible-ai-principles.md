@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Responsible AI Principles
 
 This section defines the eight principles that this guideline applies throughout the AI lifecycle. It gives definitions only: methods for meeting the principles are in the strategies section, and the specific risks of foundation models are in the risk section. The principles are transparency, fairness, privacy, robustness and security, uncertainty and reliability, energy efficiency, human oversight and agency, and social impact. Each principle is worded so that it can be turned into an evaluation criterion and an item in the self-assessment.

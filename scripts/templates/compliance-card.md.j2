@@ -1,0 +1,62 @@
+{% from "_macros.j2" import source, soon %}
+{{ front }}
+
+# Compliance card
+
+At each stage gate ({{ stages | join(", ") | lower if stages else "data collection, model training and release" }}), the responsible developer records the status of each parameter together with a justification and evidence.
+
+{{ source([S.card.link(page), S.compliance.link(page), S.metadata.link(page)]) }}
+
+!!! note "Nothing leaves your browser"
+    The form is not sent or stored anywhere. Download the card and submit it yourself (see [How to submit](#how-to-submit)).
+
+{% set params = schema.properties.parameters.properties %}
+{% if schema["x-status"] == "ok" %}
+<div class="px-tool px-card" data-px-card data-version="{{ extra.version }}">
+<script type="application/json" data-px-data>{{ schema | json }}</script>
+<form class="px-card__form" onsubmit="return false">
+<fieldset class="px-card__item">
+<legend>What is this card for?</legend>
+<label>Name of the dataset, model or service <input name="item.name" required></label>
+<label>Type <select name="item.type"><option>Dataset</option><option>Model</option><option>Service</option></select></label>
+<label>Version <input name="item.version"></label>
+<label>Submitted by <input name="item.submitted_by"></label>
+<label>Date <input type="date" name="item.date"></label>
+<label>Stage gate <select name="stage" data-stage-select>{% for st in schema["x-stages"] %}<option value="{{ st | e }}">{{ st | e }}</option>{% endfor %}</select></label>
+</fieldset>
+{% for st, ids in schema["x-stages"].items() %}
+<section class="px-card__stage" data-stage="{{ st | e }}" aria-label="Parameters: {{ st | e }}">
+{% for pid in ids %}{% set p = params[pid] %}
+<fieldset class="px-card__param">
+<legend>{{ p.title | e }}</legend>
+{% if p.get("description") %}<p class="px-card__desc">{{ p.description | e }}</p>{% endif %}
+<label>Status {% if p.properties.status.get("enum") %}<select name="{{ pid }}.status"><option value="">–</option>{% for v in p.properties.status.enum %}<option>{{ v | e }}</option>{% endfor %}</select>{% else %}<input name="{{ pid }}.status">{% endif %}</label>
+<label>Justification <textarea name="{{ pid }}.justification" rows="2"></textarea></label>
+<label>Evidence <textarea name="{{ pid }}.evidence" rows="2" placeholder="Link, file name or report section"></textarea></label>
+</fieldset>
+{% endfor %}
+</section>
+{% endfor %}
+</form>
+<div class="px-toolbar">
+<button type="button" class="md-button md-button--primary" data-action="json">Download JSON</button>
+<button type="button" class="md-button" data-action="print">Print / save as PDF</button>
+<button type="button" class="md-button" data-action="clear">Clear form</button>
+</div>
+</div>
+
+The form follows [compliance_card.schema.json]({{ rel("data/compliance_card.schema.json") }}), generated from {{ S.card.link(page) }}.
+{% else %}
+{{ soon(S.card.link(page), "The parameter list for each stage gate. ") }}
+
+Once it is in the guideline, this page becomes a form with the status, justification and evidence for every parameter, downloadable as JSON (for the metadata pipeline) and as a printable PDF.
+{% endif %}
+
+## How to submit
+
+Send the downloaded card to the responsible AI reviewer before release, in either of two ways:
+
+- **By email** to {{ extra.rai_contact }}, with the JSON file attached.
+- **On GitHub**: open a [Compliance card submission]({{ repo }}/issues/new?template=compliance-card.yml) issue and attach the JSON file. Issues are public: do not attach personal or confidential data.
+
+{{ source([S.compliance.link(page), S.governance.link(page)]) }}

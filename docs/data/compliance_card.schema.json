@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Responsible AI compliance card",
+  "description": "Generated from Annex B (Annex B: Compliance Card and JSON Schema). Do not edit by hand.",
+  "type": "object",
+  "x-status": "placeholder",
+  "x-source": {
+    "label": "Annex B",
+    "title": "Annex B: Compliance Card and JSON Schema",
+    "page": "guideline/14-annex-b-compliance-card-and-json-schema.md"
+  },
+  "x-stages": {
+    "Data collection": [],
+    "Model training": [],
+    "Reporting or deployment": []
+  },
+  "properties": {
+    "guideline_version": {
+      "type": "string"
+    },
+    "item": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "submitted_by": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "Data collection",
+        "Model training",
+        "Reporting or deployment"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}

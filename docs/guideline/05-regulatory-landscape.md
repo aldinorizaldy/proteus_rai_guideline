@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Regulatory Landscape
 
 This section maps the legal and normative frameworks that shape responsible AI for EO and states how each one applies. The guideline is aligned with the GDPR, the principles of the AI Act and the European Code of Conduct for Research Integrity, and work involving partners outside the EU should also meet the relevant regulations of their jurisdictions. Because regulations and standards keep evolving, they are tracked over time; the tracking and escalation arrangements are described in the governance section. The provision-by-provision mapping is held in the standards crosswalk annex, and the PROTEUS commitments, including those for its non-EU partners, are in Annex I.

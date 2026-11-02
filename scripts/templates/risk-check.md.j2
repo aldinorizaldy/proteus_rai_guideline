@@ -1,0 +1,39 @@
+{% from "_macros.j2" import source %}
+{{ front }}
+
+# Risk-tier self-check
+
+Answer the questions below for the model, dataset, agent or output you are working on. The result is a suggested tier and what that tier triggers.
+
+!!! warning "Indicative only – {{ rc.note or "draft" }}"
+    The result is indicative. The responsible AI reviewer decides the tier. Questions, logic and triggers are a draft derived from the tier descriptions in {{ rc.tier_source }} and the reasons listed in {{ rc.examples_source }}.
+
+{% if rc.questions %}
+<div class="px-tool px-riskcheck" data-px-riskcheck>
+<script type="application/json" data-px-data>{{ rc | json }}</script>
+<form class="px-questions" onsubmit="return false">
+{% for q in rc.questions %}
+<fieldset class="px-question">
+<legend>{{ loop.index }}. {{ q.text | e }}</legend>
+{% if q.hint %}<p class="px-question__hint">{{ q.hint | e }}</p>{% endif %}
+<label><input type="radio" name="{{ q.id | e }}" value="yes"> Yes</label>
+<label><input type="radio" name="{{ q.id | e }}" value="no"> No</label>
+</fieldset>
+{% endfor %}
+</form>
+<div class="px-result" data-result aria-live="polite" hidden></div>
+<button type="button" class="md-button" data-action="reset">Start again</button>
+</div>
+{% endif %}
+
+## The tiers
+
+| Tier | Description (from the guideline) | What it triggers (draft) |
+|------|----------------------------------|--------------------------|
+{% for name, t in rc.tiers.items() -%}
+| **{{ name | capitalize }}** | {{ (t.description or "–") | replace("|", "\\|") }} | {{ (t.triggers | join("; ") or "–") | replace("|", "\\|") }} |
+{% endfor %}
+
+{{ source([rc.tier_source, rc.examples_source]) }}
+
+The questions and triggers live in `docs/data/risk_check.yml`, where the RAI lead can change them without touching code.

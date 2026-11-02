@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Automated Validation
 
 This section describes how foundation models can be checked automatically. The approach combines several methods instead of relying on one: adversarial robustness testing, uncertainty calibration, explainability, fairness (for example per-region accuracy gaps) and privacy checks such as membership inference. The results go to an aggregator that produces a machine-readable score card, which can act as an entry gate for models in a model registry. The validation is designed to be model-agnostic and to work with input and output access only, with extended modes when a developer chooses to expose model internals. The section includes a table that separates what is mandatory in this version (documentation, data-level checks and minimum reporting) from what is planned to become mandatory in version 2 once the validation tools have been tested on foundation models. How the validation is developed and rolled out in PROTEUS is described in Annex J.

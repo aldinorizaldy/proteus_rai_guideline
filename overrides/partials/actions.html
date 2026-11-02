@@ -1,0 +1,11 @@
+{#- Material's "edit this page" button, hidden on pages generated from the
+    docx (front matter `generated: true`): edits there would be overwritten.
+    Change the Google Doc instead. -#}
+{% if page.edit_url and not page.meta.generated %}
+  {% if "content.action.edit" in features %}
+    <a href="{{ page.edit_url }}" title="{{ lang.t('action.edit') }}" class="md-content__button md-icon" rel="edit">
+      {% set icon = config.theme.icon.edit or "material/file-edit-outline" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </a>
+  {% endif %}
+{% endif %}

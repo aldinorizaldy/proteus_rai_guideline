@@ -1,0 +1,18 @@
+{% from "_macros.j2" import source %}
+{{ front }}
+
+# Use cases
+
+One page per PROTEUS use case, generated from {{ S.usecases.link(page) }} with the risk tiers from {{ S.tiers.link(page) }}. Each page uses the same layout: summary, risk tier, key principles and risks, requirements to watch, expected evidence and human-oversight points.
+
+<div class="grid cards" markdown>
+
+{% for uc in use_cases -%}
+-   **[{{ uc.id }}{% if uc.name %} · {{ uc.name }}{% endif %}]({{ uc.slug }}.md)**{% if not uc.found %} <span class="px-soon__tag">Coming soon</span>{% endif %}
+
+    {% if uc.tiers %}Risk tier: {{ uc.tiers | map(attribute="tier") | unique | join(", ") }}{% else %}Risk tier: not assigned yet{% endif %}
+
+{% endfor %}
+</div>
+
+{{ source([S.usecases.link(page), S.tiers.link(page)]) }}

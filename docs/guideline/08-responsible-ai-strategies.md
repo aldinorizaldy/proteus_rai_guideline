@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Responsible AI Strategies
 
 This section turns the principles and risks into practice. Where the principles and risk sections say what is required and why, the strategies describe how developers can meet the requirements, with method options, guidance on choosing between them, and a minimum reporting requirement. The strategies are designed to be model-agnostic, so that they apply whoever develops a given FM, and they connect to the automated validation section. Each strategy is mapped to the principles and risks it addresses.

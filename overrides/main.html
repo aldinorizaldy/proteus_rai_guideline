@@ -8,3 +8,22 @@
   <meta name="citation_publication_date" content="{{ config.extra.release_date }}">
   <meta name="citation_doi" content="{{ config.extra.doi }}">
 {% endblock %}
+
+{#- Every Guideline page says what it is and links the official document. -#}
+{% block content %}
+  {% if page.file and page.file.src_uri.startswith("guideline/") %}
+    <div class="md-typeset">
+      <aside class="px-official" aria-label="Official document">
+        <span class="twemoji">{% include ".icons/material/file-certificate-outline.svg" %}</span>
+        <p>
+          This is the web version of deliverable {{ config.extra.deliverable }}
+          (v{{ config.extra.version }}). Official document:
+          <a href="{{ 'downloads/proteus-rai-guideline.docx' | url }}" download>Word (.docx)</a> ·
+          <a href="{{ config.extra.pdf | url }}" download>PDF</a> ·
+          <a href="{{ 'changelog/' | url }}">changes</a>.
+        </p>
+      </aside>
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

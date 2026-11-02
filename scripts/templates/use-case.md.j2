@@ -1,0 +1,56 @@
+{% from "_macros.j2" import source, soon, cell %}
+{{ front }}
+
+# {{ uc.id }}{% if uc.name %} · {{ uc.name }}{% endif %}
+
+{{ source([S.usecases.link(page), S.tiers.link(page)]) }}
+
+{% macro part(key, label) -%}
+{% if uc.parts.get(key) %}
+{{ uc.parts[key] }}
+{% else %}
+{{ soon(S.usecases.link(page), label ~ " for " ~ uc.id ~ ". ") }}
+{% endif %}
+{%- endmacro %}
+
+## Summary
+
+{{ part("summary", "The summary") }}
+
+## Risk tier and why
+
+{% if uc.tiers %}
+| Risk tier | Example | Why | Review and oversight |
+|-----------|---------|-----|----------------------|
+{% for t in uc.tiers -%}
+| **{{ cell(t.tier | capitalize) }}** | {{ cell(t.example) }} | {{ cell(t.reasons) }} | {{ cell(t.oversight) }} |
+{% endfor %}
+
+{{ source([S.tiers.link(page)]) }}
+{% else %}
+{{ soon(S.tiers.link(page), "The risk tier for " ~ uc.id ~ ". ") }}
+{% endif %}
+
+## Key principles and risks
+
+{{ part("principles", "The key principles and risks") }}
+
+## Requirements to watch
+
+{{ part("requirements", "The requirements to watch") }}
+
+{% if uc.requirements %}
+Checklist entries: {% for r in uc.requirements %}[{{ r }}]({{ rel("tools/checklist.md") }}#{{ r }}){% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+
+## Expected evidence
+
+{{ part("evidence", "The expected evidence") }}
+
+## Human-oversight points
+
+{{ part("oversight", "The human-oversight points") }}
+
+---
+
+Full text: {{ S.usecases.link(page) }} · {{ S.tiers.link(page) }}

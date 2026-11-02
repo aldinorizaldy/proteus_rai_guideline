@@ -14,7 +14,7 @@ body:
       label: Section
       description: Which section is your feedback about?
       options:
-        # BEGIN sections (managed by scripts/convert_source.py)
+        # BEGIN sections (managed by scripts/build_from_docx.py)
         - "Executive Summary"
         - "Introduction"
         - "Responsible AI Principles"

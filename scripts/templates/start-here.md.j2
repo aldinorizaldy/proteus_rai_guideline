@@ -1,0 +1,92 @@
+{% from "_macros.j2" import source, soon %}
+{{ front }}
+
+# Start here
+
+Five steps for anyone producing a dataset, model or agent workflow. Each step links to the tool and to the part of the guideline it comes from.
+
+<div class="px-steps" markdown>
+
+<div class="px-step" markdown>
+<span class="px-step__n" aria-hidden="true">1</span>
+
+### Find your role
+
+Developer, data or platform provider, use case lead or deployer, reviewer: the role decides which requirements are yours.
+
+[:octicons-arrow-right-24: Roles at a glance]({{ rel("at-a-glance.md") }}#who-does-what)
+
+{{ source([S.intro.link(page, "roles-and-responsibilities"), S.roles_map.link(page)]) }}
+</div>
+
+<div class="px-step" markdown>
+<span class="px-step__n" aria-hidden="true">2</span>
+
+### Check your risk tier
+
+Answer a few yes/no questions to get an indicative tier: low, medium or high.
+
+[:octicons-arrow-right-24: Risk-tier self-check]({{ rel("tools/risk-check.md") }})
+
+{{ source([S.risks.link(page), S.tiers.link(page)]) }}
+</div>
+
+<div class="px-step" markdown>
+<span class="px-step__n" aria-hidden="true">3</span>
+
+### Go through the checklist for your stage
+
+Filter the requirements by your role and current lifecycle stage and tick them off.
+
+[:octicons-arrow-right-24: Requirements checklist]({{ rel("tools/checklist.md") }})
+
+{{ source([S.lifecycle.link(page), S.checklist.link(page)]) }}
+</div>
+
+<div class="px-step" markdown>
+<span class="px-step__n" aria-hidden="true">4</span>
+
+### Fill in the compliance card at each stage gate
+
+At data collection, model training and release, record the status, justification and evidence for each parameter.
+
+[:octicons-arrow-right-24: Compliance card]({{ rel("tools/compliance-card.md") }})
+
+{{ source([S.card.link(page), S.compliance.link(page)]) }}
+</div>
+
+<div class="px-step" markdown>
+<span class="px-step__n" aria-hidden="true">5</span>
+
+### Send the card to the RAI reviewer (HZDR) before release
+
+Email the card or attach it to a GitHub issue, and raise open issues through the escalation path.
+
+[:octicons-arrow-right-24: How to submit]({{ rel("tools/compliance-card.md") }}#how-to-submit)
+
+{{ source([S.compliance.link(page), S.governance.link(page), S.roles_map.link(page)]) }}
+</div>
+
+</div>
+
+!!! info "Just exploring?"
+    You only need steps 4–5 when you are actually producing a dataset, model or release.
+
+## Key dates
+
+{% if dates %}
+{{ S.roadmap.label }} says:
+
+{% for d in dates -%}
+> {{ d }}
+>
+{% endfor %}
+
+{{ source([S.roadmap.link(page)]) }}
+{% else %}
+{{ soon(S.roadmap.link(page)) }}
+{% endif %}
+
+## Contact
+
+Questions, exceptions or open issues: **{{ extra.rai_contact }}**.

@@ -6,6 +6,10 @@ hide:
   - toc
 ---
 
+<div class="px-hint" markdown>
+Just reading? Start with [*At a glance*](at-a-glance.md). Building something? Go to [*Quick tools*](tools/index.md).
+</div>
+
 <p class="px-summary" markdown>
 The **PROTEUS Responsible AI Guideline** sets out the principles, lifecycle
 checks and responsibilities that govern how AI is designed, built and
@@ -15,15 +19,31 @@ PROTEUS components, and for external partners, users and reviewers who want
 to understand how we put trustworthy AI and the EU AI Act into practice.
 </p>
 
-<div class="grid cards" markdown>
+<div class="grid cards px-home-cards" markdown>
+
+-   :material-lightning-bolt-outline:{ .lg } **Guideline at a glance**
+
+    ---
+
+    Understand the guideline in 5 minutes.
+
+    [:octicons-arrow-right-24: At a glance](at-a-glance.md)
 
 -   :material-book-open-page-variant-outline:{ .lg } **Read the guideline**
 
     ---
 
-    Principles, a lifecycle checklist, roles and a glossary, one section per page.
+    The full guideline, identical to deliverable D1.3.
 
     [:octicons-arrow-right-24: Start reading](guideline/index.md)
+
+-   :material-hammer-wrench:{ .lg } **Quick tools** <span class="px-tag px-tag--build">For builders</span>
+
+    ---
+
+    Building, training or releasing a model, dataset or agent? Start here.
+
+    [:octicons-arrow-right-24: Open Quick tools](tools/index.md)
 
 -   :material-format-quote-open:{ .lg } **Cite it**
 

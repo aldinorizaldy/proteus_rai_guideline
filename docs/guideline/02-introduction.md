@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Introduction
 
 This guideline sets out an ethical framework and practical guidance for the responsible and trustworthy development and use of AI in Earth observation (EO), covering the whole lifecycle from data acquisition to model deployment and decision-making. It addresses the developers of foundation models (FMs) and agents, data and platform providers, the teams that apply models in operational or research use cases, and the bodies that review and oversee this work. It is a living document that is revised as methods, regulation and experience develop. The guideline was first produced as the Ethics and Responsible AI Guidelines (D1.3) of the PROTEUS project; the project context, the roles of the PROTEUS partners and the way the project applies the guideline are described in Annexes F to L.

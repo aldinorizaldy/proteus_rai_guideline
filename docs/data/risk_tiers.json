@@ -1,0 +1,38 @@
+{
+  "header": [
+    "Risk tier",
+    "Description",
+    "FM hallucination"
+  ],
+  "rows": [
+    [
+      "Low",
+      "Limited consequences, with errors readily detectable and correctable.",
+      "An incorrect land-cover description in an exploratory application with no operational consequences."
+    ],
+    [
+      "Medium",
+      "Errors may affect analytical reliability, interpretation, or planning, but can be identified and corrected through validation.",
+      "An incorrect vegetation-change assessment influencing environmental monitoring results."
+    ],
+    [
+      "High",
+      "Errors could substantially affect safety, critical infrastructure, sensitive information, or consequential decisions.",
+      "Incorrectly identifying flood-exposed infrastructure during emergency response, potentially misleading operational decisions."
+    ]
+  ],
+  "tiers": {
+    "low": {
+      "description": "Limited consequences, with errors readily detectable and correctable.",
+      "example": "An incorrect land-cover description in an exploratory application with no operational consequences."
+    },
+    "medium": {
+      "description": "Errors may affect analytical reliability, interpretation, or planning, but can be identified and corrected through validation.",
+      "example": "An incorrect vegetation-change assessment influencing environmental monitoring results."
+    },
+    "high": {
+      "description": "Errors could substantially affect safety, critical infrastructure, sensitive information, or consequential decisions.",
+      "example": "Incorrectly identifying flood-exposed infrastructure during emergency response, potentially misleading operational decisions."
+    }
+  }
+}

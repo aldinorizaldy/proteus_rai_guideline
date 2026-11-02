@@ -65,6 +65,8 @@ extra:
   pdf: pdf/proteus-rai-guideline.pdf
   project_url: https://www.proteus-project.eu   # placeholder
   grant: "101296397"
+  deliverable: D1.3
+  rai_contact: rai-reviewer@example.org (placeholder)   # placeholder: set the real address
   generator: false
   social:
     - icon: fontawesome/brands/github
@@ -76,8 +78,10 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/tools.css
 extra_javascript:
   - javascripts/extra.js
+  - javascripts/tools.js
 
 markdown_extensions:
   - abbr
@@ -126,8 +130,10 @@ plugins:
       add_full_urls: false
       enumerate_headings: false
       print_page_title: PROTEUS Responsible AI Guideline
-      exclude:
+      exclude:              # the PDF is the guideline only
         - index.md
+        - at-a-glance.md
+        - tools/*
         - changelog.md
         - contribute.md
 
@@ -143,9 +149,10 @@ validation:
 
 nav:
   - Home: index.md
+  - At a glance: at-a-glance.md
   - Guideline:
       - guideline/index.md
-      # BEGIN guideline-nav (managed by scripts/convert_source.py)
+      # BEGIN guideline-nav (managed by scripts/build_from_docx.py)
       - "1. Executive Summary": guideline/01-executive-summary.md
       - "2. Introduction": guideline/02-introduction.md
       - "3. Responsible AI Principles": guideline/03-responsible-ai-principles.md
@@ -171,6 +178,24 @@ nav:
       - "Annex K: Relationship to the PROTEUS Data Management Plan": guideline/23-annex-k-relationship-to-the-proteus-data.md
       - "Annex L: PROTEUS Roadmap to D2.2": guideline/24-annex-l-proteus-roadmap-to-d2-2.md
       # END guideline-nav
+  - Quick tools:
+      - tools/index.md
+      - Start here: tools/start-here.md
+      - Use cases:
+          - tools/use-cases/index.md
+          # BEGIN usecase-nav (managed by scripts/build_from_docx.py)
+          - "UC1 · Displacement monitoring": tools/use-cases/uc1.md
+          - "UC2 · Crop stress": tools/use-cases/uc2.md
+          - "UC3 · Irrigation": tools/use-cases/uc3.md
+          - "UC4 · Urban air quality": tools/use-cases/uc4.md
+          - "UC5 · Wildfires": tools/use-cases/uc5.md
+          - "UC6 · Flood risk": tools/use-cases/uc6.md
+          - "UC7 · Research and education": tools/use-cases/uc7.md
+          # END usecase-nav
+      - Requirements checklist: tools/checklist.md
+      - Risk-tier self-check: tools/risk-check.md
+      - Compliance card: tools/compliance-card.md
+      - Worked example: tools/worked-example.md
   - How to cite: cite.md
   - Changelog: changelog.md
   - Contribute: contribute.md

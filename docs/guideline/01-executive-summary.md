@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Executive Summary
 
 Teams that develop or use foundation models or agents for Earth observation (EO) should document and check their work against the responsible AI principles at each stage of the model lifecycle, and should have the resulting evidence reviewed before a model, dataset or service is released. This guideline gives the definitions, the risks to watch for, the requirements at each stage, and the methods and metadata to use. It was developed in the PROTEUS project, where its requirements are binding for the consortium partners (Annex F), and the core text is written so that it can be applied to EO AI work beyond the project. It is the first of two versions: version 1 fixes documentation, data-level checks and minimum reporting, and version 2 adds automated validation once the validation tools have been tested on the first foundation models.

@@ -58,29 +58,38 @@ until you run the commands above.
 
 ## Update the content from the Google Doc
 
-The Google Doc is the master copy. To publish a new draft:
+The Google Doc is the master copy, and the docx exported from it is the only
+content source for the site. To publish a new draft:
 
-1. In Google Docs: **File → Download → Microsoft Word (.docx)**. Use
-   *Heading 1* for each top-level section (Introduction, Principles, …). Text
-   before the first Heading 1 goes on the guideline overview page.
-2. Save it as `source/<name>.docx`. Replace the old export rather than adding a second one.
-3. Convert:
+1. In Google Docs: **File → Download → Microsoft Word (.docx)**.
+2. Save it in `source/`, replacing the old export (exactly one `.docx` there).
+3. Build everything that comes from the docx, then check it:
 
    ```bash
-   python scripts/convert_source.py         # --level 2 to split at Heading 2 instead
+   python scripts/build_from_docx.py      # Guideline pages, At a glance, Quick tools, data
+   python scripts/check_guideline.py      # Guideline tab == docx (headings, word counts)
+   python -m unittest discover -s tests   # optional: pipeline test on a sample docx
    ```
 
-   This writes one page per section to `docs/guideline/NN-<slug>.md`, extracts
-   images to `docs/assets/guideline-media/`, and regenerates the "Guideline"
-   navigation in `mkdocs.yml`, the overview page and the section list of
-   the feedback issue template. Headings, tables, figures with captions and
-   footnotes are preserved. The text itself is not changed.
 4. Review with `mkdocs serve`, then commit `source/`, `docs/` and `mkdocs.yml`
-   and push. The site redeploys automatically.
+   and push. CI repeats steps 3 and redeploys.
 
-Do not edit the generated `docs/guideline/NN-*.md` files by hand. The next
-conversion overwrites them. All other pages (home, cite, changelog,
-contribute) are maintained directly in `docs/`.
+What is generated (do not edit by hand, the next build overwrites it):
+
+| Output | From |
+|---|---|
+| `docs/guideline/*.md` | the whole docx, verbatim, one page per Heading 1 |
+| `docs/at-a-glance.md` | sentences and lists quoted from sections 1–4 |
+| `docs/tools/**.md`, `docs/data/*.json` | the annexes (checklist, use cases, risk tiers, compliance card, worked example) |
+| `docs/downloads/proteus-rai-guideline.docx` | the docx itself (build time only, not committed) |
+
+Hand-maintained: `docs/data/risk_check.yml` (questions, logic and triggers of
+the risk self-check, for the RAI lead), the page layouts in
+`scripts/templates/`, and the home, cite, changelog and contribute pages.
+
+The formatting conventions the tools rely on (annex tables, use-case headings,
+requirement IDs) are in [`source/README.md`](source/README.md). While an annex
+is still an outline, its tool shows a "Coming soon" placeholder.
 
 ## Release a new version
 
@@ -131,16 +140,24 @@ contribute) are maintained directly in `docs/`.
 ```text
 docs/                    Website content (Markdown)
   guideline/             One page per guideline section (generated)
+  at-a-glance.md         5-minute summary (generated)
+  tools/                 Quick tools pages (generated)
+  data/                  Tool data (generated JSON; risk_check.yml is hand-edited)
   assets/                Logos, globe, EU flag, favicons, extracted figures
-  stylesheets/extra.css  PROTEUS colour tokens and theme
+  stylesheets/           extra.css (PROTEUS theme), tools.css (tools, banner)
+  javascripts/tools.js   Checklist, risk self-check, compliance card (plain JS)
 overrides/               Material theme overrides (hero, header PDF button, EU footer)
 includes/                Shared link definitions and the PDF cover page
 scripts/
-  convert_source.py      Google Doc export -> Markdown pages (pandoc)
+  build_from_docx.py     docx -> Guideline pages, At a glance, Quick tools, data
+  convert_source.py      docx -> Guideline pages (library used by the above)
+  check_guideline.py     Fails if the Guideline tab differs from the docx
+  templates/             Layouts of the generated At a glance and tool pages
   build_pdf.py           Built site -> PDF (headless Chromium)
   prepare_assets.py      Favicons, transparent logo, optimised hero image
   bump_version.py        Set version, date and DOI everywhere
-source/                  Google Doc exports
+source/                  The Google Doc export (+ formatting conventions)
+tests/                   Pipeline test with a sample docx
 .github/workflows/       Build + deploy to GitHub Pages
 CITATION.cff, .zenodo.json   Citation and Zenodo archiving metadata
 ```

@@ -1,0 +1,16 @@
+<!--j Shared snippets for the generated pages. Jinja comments use <!--j … j-->
+    because "{#" is Markdown's heading-id syntax. j-->
+{% macro source(links) -%}
+Source: {{ links | join(" · ") }}
+{: .px-source }
+{%- endmacro %}
+
+{% macro soon(link, what="") -%}
+<div class="px-soon" markdown>
+<span class="px-soon__tag">Coming soon</span> {{ what }}This will be filled from {{ link }}.
+</div>
+{%- endmacro %}
+
+{% macro cell(s) -%}
+{{ (s or "–") | replace("|", "\\|") | replace("\n", " ") }}
+{%- endmacro %}

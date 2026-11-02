@@ -1,0 +1,26 @@
+{% from "_macros.j2" import source, soon %}
+{{ front }}
+
+# Worked example
+
+{{ source([S.worked.link(page)]) }}
+
+{% if steps %}
+{% for s in steps %}
+<div class="px-step px-step--wide" markdown>
+<span class="px-step__n" aria-hidden="true">{{ loop.index }}</span>
+
+## {{ s.title }}
+
+{{ s.body }}
+
+{% if s.tools %}
+Tool used: {{ s.tools | join(" · ") }}
+{: .px-tool-link }
+{% endif %}
+</div>
+
+{% endfor %}
+{% else %}
+{{ soon(S.worked.link(page), "A step-by-step example with a filled checklist excerpt and a filled compliance card. ") }}
+{% endif %}

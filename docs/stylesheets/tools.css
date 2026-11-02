@@ -1,0 +1,171 @@
+/* ==========================================================================
+   At a glance, Quick tools and the Guideline banner.
+   Uses the brand tokens from extra.css.
+   ========================================================================== */
+
+[data-md-color-scheme="default"] {
+  --px-tag-soon-bg: rgba(255, 192, 0, 0.26);  --px-tag-soon-fg: var(--px-ink-amber);
+  --px-tag-build-bg: rgba(252, 149, 46, 0.18); --px-tag-build-fg: var(--px-ink-orange);
+  --px-soft-bg: rgba(179, 166, 223, 0.12);
+  --px-field-bg: #FFFFFF;
+  --px-done-bg: rgba(129, 197, 165, 0.16);
+}
+[data-md-color-scheme="slate"] {
+  --px-tag-soon-bg: rgba(255, 192, 0, 0.18);  --px-tag-soon-fg: #FFD866;
+  --px-tag-build-bg: rgba(252, 149, 46, 0.20); --px-tag-build-fg: #FFC08A;
+  --px-soft-bg: rgba(179, 166, 223, 0.10);
+  --px-field-bg: rgba(255, 255, 255, 0.06);
+  --px-done-bg: rgba(129, 197, 165, 0.14);
+}
+
+/* Small tags ---------------------------------------------------------------- */
+.px-soon__tag, .px-tag {
+  display: inline-block; padding: 0.05rem 0.45rem; border-radius: 1rem;
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.02em; vertical-align: 0.1em;
+  text-transform: uppercase; white-space: nowrap;
+}
+.px-soon__tag { background: var(--px-tag-soon-bg); color: var(--px-tag-soon-fg); }
+.px-tag--build { background: var(--px-tag-build-bg); color: var(--px-tag-build-fg); }
+
+/* "Source: Section 3" line ------------------------------------------------- */
+.md-typeset .px-source {
+  font-size: 0.68rem; color: var(--md-default-fg-color--light);
+  margin: 0.4rem 0 1.2rem;
+}
+.md-typeset .px-source a { color: inherit; }
+.md-typeset .px-source a:hover { color: var(--px-link-hover); }
+
+/* Placeholders, disclaimers, audience notes -------------------------------- */
+.md-typeset .px-soon {
+  border: 1px dashed var(--px-amber); border-radius: var(--px-radius);
+  padding: 0.6rem 0.9rem; margin: 0.8rem 0; background: rgba(255, 192, 0, 0.06);
+  font-size: 0.75rem;
+}
+.md-typeset .px-soon p { margin: 0; }
+.md-typeset .px-disclaimer,
+.md-typeset .px-audience {
+  border-left: 0.25rem solid var(--px-purple); background: var(--px-soft-bg);
+  border-radius: 0 var(--px-radius) var(--px-radius) 0; padding: 0.7rem 1rem; margin: 0 0 1.4rem;
+}
+.md-typeset .px-disclaimer p, .md-typeset .px-audience p { margin: 0.2rem 0; }
+.md-typeset .px-audience { border-left-color: var(--px-orange); font-size: 0.85rem; }
+
+/* Guideline banner ---------------------------------------------------------- */
+.md-typeset .px-official {
+  display: flex; gap: 0.6rem; align-items: flex-start; flex-wrap: wrap;
+  font-size: 0.7rem; line-height: 1.5; margin: 0 0 1.2rem;
+  padding: 0.5rem 0.8rem; border-radius: var(--px-radius);
+  background: var(--px-soft-bg); border: 1px solid var(--px-card-border);
+}
+.md-typeset .px-official p { margin: 0; }
+.md-typeset .px-official .twemoji { color: var(--px-ink-lavender); }
+[data-md-color-scheme="slate"] .md-typeset .px-official .twemoji { color: var(--px-lavender); }
+
+/* Home: hint under the hero ------------------------------------------------- */
+.md-typeset .px-hint {
+  text-align: center; font-size: 0.8rem; margin: 0 auto 1.6rem; padding: 0.6rem 1rem;
+  border-radius: 2rem; background: var(--px-soft-bg); max-width: 40rem;
+}
+.md-typeset .px-hint p { margin: 0; }
+
+/* Builder card on the home page stands out --------------------------------- */
+.md-typeset .grid.cards > ul > li:has(.px-tag--build) {
+  border-color: var(--px-orange); border-width: 2px;
+}
+
+/* Start here: step cards ----------------------------------------------------- */
+.md-typeset .px-steps { display: grid; gap: 0.8rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin: 1rem 0 1.4rem; }
+.md-typeset .px-step {
+  position: relative; border: 1px solid var(--px-card-border); border-radius: var(--px-radius);
+  padding: 0.8rem 0.9rem 0.4rem; background: var(--px-card-bg);
+}
+.md-typeset .px-step--wide { margin: 0 0 1rem; padding-left: 3rem; }
+.md-typeset .px-step h2, .md-typeset .px-step h3 { margin: 0.2rem 0 0.4rem; font-size: 0.9rem; }
+.md-typeset .px-step--wide h2 { font-size: 1.05rem; border: 0; }
+.md-typeset .px-step p { font-size: 0.74rem; margin: 0.4rem 0; }
+.md-typeset .px-step__n {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  background: var(--px-purple); color: #fff; font-weight: 700; font-size: 0.8rem;
+}
+.md-typeset .px-step--wide .px-step__n { position: absolute; left: 0.8rem; top: 0.9rem; }
+
+/* Tool forms ---------------------------------------------------------------- */
+.md-typeset .px-tool { margin: 1rem 0 1.4rem; }
+.md-typeset .px-filters { display: flex; flex-wrap: wrap; gap: 0.6rem 0.8rem; margin-bottom: 0.6rem; }
+.md-typeset .px-tool label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.68rem; font-weight: 600; }
+.md-typeset .px-filters label { min-width: 9rem; flex: 1 1 9rem; }
+.md-typeset .px-filters__search { flex: 2 1 14rem !important; }
+.md-typeset .px-tool :is(select, input:not([type=checkbox]):not([type=radio]), textarea) {
+  font: inherit; font-size: 0.75rem; font-weight: 400; color: var(--md-typeset-color);
+  background: var(--px-field-bg); border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem; padding: 0.35rem 0.5rem; width: 100%;
+}
+.md-typeset .px-tool :is(select, input, textarea):focus-visible { outline: 3px solid var(--px-amber); outline-offset: 1px; }
+.md-typeset .px-toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.6rem 0; }
+.md-typeset .px-toolbar .md-button { margin: 0; padding: 0.35em 1em; font-size: 0.7rem; }
+.md-typeset .px-count { margin: 0 auto 0 0; font-size: 0.72rem; color: var(--md-default-fg-color--light); }
+
+/* Checklist table ------------------------------------------------------------- */
+.md-typeset .px-table-wrap { overflow-x: auto; border: 1px solid var(--px-card-border); border-radius: var(--px-radius); }
+.md-typeset .px-table-wrap:focus-visible { outline: 3px solid var(--px-amber); outline-offset: 2px; }
+.md-typeset table.px-table { display: table; width: 100%; margin: 0; border: 0; font-size: 0.68rem; border-collapse: collapse; }
+.md-typeset table.px-table th { background: var(--px-table-head); text-align: left; padding: 0.5rem 0.6rem; white-space: nowrap; }
+.md-typeset table.px-table td { padding: 0.45rem 0.6rem; vertical-align: top; border-top: 1px solid var(--md-default-fg-color--lightest); }
+.md-typeset table.px-table td:first-child { text-align: center; }
+.md-typeset table.px-table input[type=checkbox] { width: 1rem; height: 1rem; accent-color: var(--px-purple); }
+.md-typeset table.px-table tr.is-done td { background: var(--px-done-bg); }
+.md-typeset table.px-table tr.is-target td { box-shadow: inset 0 2px 0 var(--px-orange), inset 0 -2px 0 var(--px-orange); }
+.md-typeset table.px-table tr { scroll-margin-top: 6rem; }
+.md-typeset .px-binding { font-weight: 600; text-transform: uppercase; font-size: 0.62rem; }
+.md-typeset .px-binding--must { color: var(--px-ink-orange); }
+.md-typeset .px-binding--should { color: var(--px-ink-sky); }
+[data-md-color-scheme="slate"] .md-typeset .px-binding--must { color: #FFC08A; }
+[data-md-color-scheme="slate"] .md-typeset .px-binding--should { color: #A9CBEB; }
+
+/* Risk self-check -------------------------------------------------------------- */
+.md-typeset .px-question {
+  border: 1px solid var(--px-card-border); border-radius: var(--px-radius);
+  padding: 0.5rem 0.9rem 0.7rem; margin: 0 0 0.6rem;
+}
+.md-typeset .px-question legend { font-weight: 600; font-size: 0.78rem; padding: 0 0.3rem; }
+.md-typeset .px-question__hint { font-size: 0.68rem; color: var(--md-default-fg-color--light); margin: 0 0 0.3rem; }
+.md-typeset .px-question label { display: inline-flex; flex-direction: row; align-items: center; gap: 0.35rem; margin-right: 1.4rem; font-size: 0.76rem; font-weight: 400; }
+.md-typeset .px-question input[type=radio] { accent-color: var(--px-purple); width: 1rem; height: 1rem; }
+.md-typeset .px-result {
+  border-radius: var(--px-radius); padding: 0.7rem 1rem; margin: 0.8rem 0; font-size: 0.78rem;
+  border: 2px solid var(--px-card-border); background: var(--px-soft-bg);
+}
+.md-typeset .px-result p { margin: 0.3rem 0; }
+.md-typeset .px-result__tier { font-size: 0.95rem; }
+.md-typeset .px-result--low { border-color: var(--px-mint); }
+.md-typeset .px-result--medium { border-color: var(--px-amber); }
+.md-typeset .px-result--high { border-color: var(--px-orange); }
+.md-typeset .px-result__note { font-size: 0.68rem; color: var(--md-default-fg-color--light); }
+
+/* Compliance card ---------------------------------------------------------------- */
+.md-typeset .px-card fieldset {
+  border: 1px solid var(--px-card-border); border-radius: var(--px-radius);
+  padding: 0.6rem 0.9rem 0.8rem; margin: 0 0 0.8rem; display: grid; gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+.md-typeset .px-card legend { font-weight: 700; font-size: 0.8rem; padding: 0 0.3rem; }
+.md-typeset .px-card__desc { grid-column: 1 / -1; margin: 0; font-size: 0.7rem; color: var(--md-default-fg-color--light); }
+.md-typeset .px-print-card { display: none; }
+
+/* Print: tool pages print the tool, not the controls ----------------------------- */
+@media print {
+  .md-typeset .px-filters, .md-typeset .px-toolbar, .md-typeset [data-action],
+  .md-typeset .px-card__form, .md-typeset .px-official { display: none !important; }
+  .md-typeset .px-table-wrap { overflow: visible; border: 0; }
+  .md-typeset table.px-table { font-size: 8pt; }
+  .md-typeset table.px-table tr[hidden] { display: none; }
+  .md-typeset table.px-table tr { break-inside: avoid; }
+  .md-typeset .px-print-card { display: block; }
+  .md-typeset .px-print-card table { font-size: 8pt; width: 100%; }
+  .md-typeset .px-print-card dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.1rem 1rem; }
+  .md-typeset .px-print-card dd { margin: 0; }
+}
+
+/* Requirement IDs never break ("DC-" / "01"). */
+.md-typeset table.px-table td:nth-child(2) { white-space: nowrap; }

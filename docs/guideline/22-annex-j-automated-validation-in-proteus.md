@@ -1,3 +1,9 @@
+---
+# Generated from the docx in source/ by scripts/build_from_docx.py.
+# Do not edit: change the Google Doc and re-export instead.
+generated: true
+---
+
 # Annex J: Automated Validation in PROTEUS
 
 This annex describes how the automated validation in the Automated Validation section is developed and applied in PROTEUS. It is developed in T3.4 & T4.4 under KR06, first built against an open foundation model and then applied to the consortium foundation models once they are released (D3.2, D4.1), and its methods and implementations are documented in D4.2. The machine-readable score card can act as an entry gate for models in the PROTEUS FM registry. This version of the guideline (D1.3) makes documentation, data-level checks and minimum reporting mandatory, and tool-based validation becomes mandatory in D2.2 once the tools have been tested on the first consortium foundation models. The results of the self-assessments and of the validation feed the evaluation of KR06 across UC1 to UC7.
